@@ -43,7 +43,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="mt-14 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+            <div className="mt-12 grid gap-3 sm:gap-4 sm:grid-cols-2 lg:mt-14 xl:grid-cols-4">
               {homeStats.map((stat) => (
                 <div key={stat.label} className="metric-card hover:border-white/20 transition-all duration-300">
                   <p className="text-xs uppercase tracking-[0.28em] text-white/40">{stat.label}</p>

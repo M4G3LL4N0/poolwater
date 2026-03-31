@@ -21,7 +21,7 @@ export default function SiteShell({
             POOL WATER
           </Link>
 
-          <nav className="flex flex-wrap items-center justify-center gap-2 text-sm text-white/75">
+          <nav className="flex flex-wrap items-center justify-center gap-1 text-sm text-white/75 sm:gap-2">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
