@@ -33,16 +33,6 @@ export default function SiteShell({
                 {link.label}
               </Link>
             ))}
-            <Link
-              href="/investors"
-              className={
-                accent === "investor"
-                  ? "rounded-full border border-white/15 bg-white px-4 py-2 text-black"
-                  : "rounded-full border border-white/15 bg-white/[0.04] px-4 py-2 hover:bg-white/[0.08]"
-              }
-            >
-              Investors
-            </Link>
           </nav>
         </div>
       </header>

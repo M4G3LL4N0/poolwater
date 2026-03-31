@@ -11,7 +11,9 @@ export default function HomePage() {
   return (
     <SiteShell>
       <main>
-        <section className="page-hero hero-gradient">
+        <section className="page-hero hero-gradient relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.08),transparent_60%)] opacity-30" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(89,215,255,0.12),transparent_40%)] opacity-20" />
           <div className="page-hero-inner">
             <div className="max-w-5xl">
               <p className="section-kicker">Late-night social playground</p>
@@ -43,7 +45,7 @@ export default function HomePage() {
 
             <div className="mt-14 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
               {homeStats.map((stat) => (
-                <div key={stat.label} className="metric-card">
+                <div key={stat.label} className="metric-card hover:border-white/20 transition-all duration-300">
                   <p className="text-xs uppercase tracking-[0.28em] text-white/40">{stat.label}</p>
                   <p className="metric-value">{stat.value}</p>
                 </div>
@@ -100,7 +102,7 @@ export default function HomePage() {
         </section>
 
         <section className="container-shell py-20 md:py-24">
-          <div className="glass-panel rounded-[36px] p-8 md:p-12">
+          <div className="glass-panel rounded-[36px] p-8 md:p-12 hover:shadow-[0_0_80px_rgba(89,215,255,0.12)] transition-all duration-500">
             <p className="section-kicker">The room</p>
             <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-[-0.05em] text-white md:text-5xl">
               Pool tables, arcade glow, foosball, air hockey, food, and a floor that keeps moving.

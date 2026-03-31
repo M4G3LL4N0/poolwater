@@ -217,6 +217,16 @@ a {
   position: relative;
   overflow: hidden;
   border-bottom: 1px solid rgba(255,255,255,0.1);
+  perspective: 1000px;
+}
+
+.page-hero-inner {
+  transform: translateZ(0);
+  transition: transform 0.2s ease-out;
+}
+
+.page-hero:hover .page-hero-inner {
+  transform: translateZ(20px);
 }
 
 .page-hero-inner {
