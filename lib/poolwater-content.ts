@@ -233,3 +233,30 @@ export const waitlistMessages = {
   errorMessage: "Something went wrong. Please try again.",
 };
 
+export const contactMessages = {
+  headline: "Hit us up.",
+  subtitle: "Got questions? Want to collaborate? Have an idea for the room? Let us know.",
+  formTitle: "Send us a message",
+  formDescription: "We read everything that comes through here.",
+  successMessage: "Message sent. We'll get back to you soon.", 
+  errorMessage: "Something went wrong. Try again or email direct.",
+};
+
+export const venuePartnerContent = {
+  headline: "Partner with POOL WATER.",
+  subtitle: "Got an underused space? Let's activate it.",  
+  description: [
+    "POOL WATER partners with venues to create limited-run late-night experiences on typically slow nights.",
+    "We handle promotion, staffing, and operations — you provide the space and make money on food/drink.",
+    "Ideal locations have underutilized back rooms, event spaces, or off nights they'd like to bring more energy to."
+  ],
+  benefits: [
+    "No upfront cost - we split percentage of door",
+    "Revenue from food/drink upsells",
+    "Marketing exposure to our audience",
+    "Built-in operations team",
+    "Test-run model before longer commitment"
+  ],
+  formTitle: "Tell us about your space",
+};
+

@@ -55,3 +55,26 @@ export interface PortfolioUiNote {
   title: string;
   body: string;
 }
+
+export interface ContactSubmission {
+  id?: string;
+  name: string;
+  email: string;
+  message: string;
+  source?: string | null;
+  created_at?: string;
+}
+
+export interface VenueInquiry {
+  id?: string;
+  venue_name: string;
+  contact_name: string;
+  email: string;
+  phone?: string | null;
+  city: string;
+  notes?: string | null;
+  created_at?: string;
+}
+
+export interface ContactResponse extends ApiSuccess<{ success: boolean }> {}
+export interface VenueInquiryResponse extends ApiSuccess<{ success: boolean }> {}
