@@ -4,10 +4,8 @@ import { navLinks } from "../lib/poolwater-content";
 
 export default function SiteShell({
   children,
-  accent = "default",
 }: {
   children: ReactNode;
-  accent?: "default" | "investor";
 }) {
   return (
     <div className="relative min-h-screen overflow-x-hidden">
@@ -44,8 +42,7 @@ export default function SiteShell({
           <div>
             <p className="text-lg font-semibold tracking-[-0.04em] text-white">POOL WATER</p>
             <p className="mt-2 max-w-xl text-sm leading-7 text-white/55">
-              A late-night social playground built around games, movement, food, and a room that
-              actually feels alive.
+              A premium late-night social space built around immersive gaming, movement, and food in an atmosphere designed to stay alive all night.
             </p>
           </div>
 

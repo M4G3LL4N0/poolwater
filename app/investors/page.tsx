@@ -98,23 +98,6 @@ export default function InvestorsPage() {
           </div>
         </section>
 
-        <section className="border-y border-white/10 bg-white/[0.025]">
-          <div className="container-shell py-20 md:py-24">
-            <p className="section-kicker">Parent-company / portfolio fit</p>
-            <h2 className="section-title mt-4 max-w-4xl">
-              Internal only: how Pool Water should appear inside the Noaerth portfolio.
-            </h2>
-
-            <div className="mt-12 grid gap-6 md:grid-cols-2">
-              {portfolioUiStructure.map((item) => (
-                <article key={item.title} className="soft-card rounded-[30px] p-7">
-                  <p className="text-xl font-semibold tracking-[-0.04em] text-white">{item.title}</p>
-                  <p className="mt-4 text-sm leading-7 text-white/62">{item.body}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
 
         <section className="container-shell py-20 md:py-24">
           <div className="glass-panel rounded-[36px] p-8 md:p-12">

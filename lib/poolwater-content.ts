@@ -70,17 +70,17 @@ export const aboutBlocks = [
   {
     title: "Why it started",
     body:
-      "POOL WATER came from a simple thought: going out should feel active, social, and worth remembering. Too many nights are expensive, passive, and weirdly empty even when the room is full.",
+      "We built POOL WATER around one idea: nights out should feel active, social, and worth staying for. Most places leave you standing around or wondering when the room will come alive.",
   },
   {
     title: "What it is",
     body:
-      "POOL WATER is a late-night social playground built around games, movement, food, and a room that actually feels alive.",
+      "A premium late-night experience where games, food, and movement create constant energy. The room pulls you in from the moment you arrive.",
   },
   {
     title: "What it is not",
     body:
-      "It is not bottle-service theater. It is not a dead pool hall. It is not a corporate arcade. It is not a room where you spend the night waiting for something to happen.",
+      "Not a club. Not a bar. Not somewhere you go just to be seen. This is a designed space where the night unfolds naturally through activity.",
   },
 ];
 
@@ -385,25 +385,3 @@ export const firstThreeEvents = [
   },
 ];
 
-export const portfolioUiStructure = [
-  {
-    title: "Noaerth portfolio homepage role",
-    body:
-      "POOL WATER should appear there as an experiential entertainment company, but only in a clean strategic context. No public party-language should bleed into the parent-company homepage.",
-  },
-  {
-    title: "Card system",
-    body:
-      "Use premium tiles with a cinematic game-floor visual language: chrome, felt texture, cool blue light, arcade glow, reflective surfaces, and strong dark contrast.",
-  },
-  {
-    title: "Copy positioning",
-    body:
-      "Describe POOL WATER at the parent-company level as an adult social entertainment brand or experiential nightlife platform — not as a rave, afters company, or underground scene operator.",
-  },
-  {
-    title: "Investor separation",
-    body:
-      "Public Pool Water pages should feel cultural and user-first. Parent-company pages should feel strategic, restrained, and portfolio-oriented. Keep them separate on purpose.",
-  },
-];
