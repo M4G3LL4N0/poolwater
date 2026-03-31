@@ -11,11 +11,13 @@ export default function SiteShell({
 }) {
   return (
     <div className="relative min-h-screen overflow-x-hidden">
-      <div className="pool-orb left-[-120px] top-[120px] h-[260px] w-[260px] bg-cyan-400" />
-      <div className="pool-orb right-[-100px] top-[220px] h-[280px] w-[280px] bg-blue-500" />
-      <div className="pool-orb bottom-[120px] left-[18%] h-[220px] w-[220px] bg-violet-500" />
+      <div className="pool-orb left-[-120px] top-[120px] h-[260px] w-[260px] bg-cyan-400 animate-orb-pulse-delay" />
+      <div className="pool-orb right-[-100px] top-[220px] h-[280px] w-[280px] bg-blue-500 animate-orb-pulse" />
+      <div className="pool-orb bottom-[120px] left-[18%] h-[220px] w-[220px] bg-violet-500 animate-orb-pulse-delay" />
+      <div className="pool-orb left-[30%] top-[400px] h-[180px] w-[180px] bg-teal-500 animate-orb-pulse-slow" />
 
-      <header className="sticky top-0 z-50 border-b border-white/10 bg-[#07111bcc]/80 backdrop-blur-2xl">
+      <header className="sticky top-0 z-50 border-b border-white/10 bg-gradient-to-b from-[#0b172499] to-[#07111bcc] backdrop-blur-2xl">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--glass-edge),_transparent_60%)] opacity-40" />
         <div className="container-shell flex flex-wrap items-center justify-between gap-4 py-4">
           <Link href="/" className="text-xl font-semibold tracking-[-0.04em] text-white">
             POOL WATER

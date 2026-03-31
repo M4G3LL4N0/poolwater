@@ -10,11 +10,13 @@
   --text: #f5f7fb;
   --muted: rgba(255, 255, 255, 0.68);
   --soft: rgba(255, 255, 255, 0.44);
-  --pool-cyan: #59d7ff;
-  --pool-blue: #3c7bff;
-  --pool-teal: #4ce0c6;
-  --pool-violet: #7c6dff;
-  --pool-pink: #ff7aa2;
+  --pool-cyan: hsl(192, 100%, 71%);
+  --pool-blue: hsl(220, 100%, 71%);
+  --pool-teal: hsl(172, 70%, 65%);
+  --pool-violet: hsl(248, 100%, 71%);
+  --pool-pink: hsl(343, 100%, 71%);
+  --glass-edge: hsla(0, 0%, 100%, 0.2);
+  --glass-tint: hsla(220, 80%, 60%, 0.06);
 }
 
 html {
@@ -61,30 +63,57 @@ a {
 
 .glass-panel {
   background:
-    linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
-  border: 1px solid rgba(255,255,255,0.1);
+    linear-gradient(157deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+  border: 1px solid rgba(255,255,255,0.15);
+  border-top: 1px solid rgba(255,255,255,0.2);
   box-shadow:
-    0 1px 0 rgba(255,255,255,0.06) inset,
-    0 20px 80px rgba(0,0,0,0.28);
-  backdrop-filter: blur(18px);
+    0 1px 4px rgba(0,0,0,0.15) inset,
+    0 4px 40px rgba(0,0,0,0.35),
+    0 0 120px rgba(59, 130, 246, 0.08);
+  backdrop-filter:
+    blur(16px) 
+    saturate(140%);
 }
 
 .soft-card {
   background:
-    linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.025));
-  border: 1px solid rgba(255,255,255,0.1);
+    linear-gradient(157deg, rgba(255,255,255,0.08), rgba(255,255,255,0.045));
+  border: 1px solid rgba(255,255,255,0.12);
   box-shadow:
-    0 1px 0 rgba(255,255,255,0.05) inset,
-    0 12px 40px rgba(0,0,0,0.22);
-  backdrop-filter: blur(14px);
+    0 1px 3px rgba(0,0,0,0.12) inset,
+    0 4px 30px rgba(0,0,0,0.28),
+    0 0 80px rgba(124, 58, 237, 0.06);
+  backdrop-filter:
+    blur(12px)
+    saturate(135%);  
 }
 
 .pool-orb {
   position: absolute;
   border-radius: 9999px;
-  filter: blur(55px);
+  filter: blur(clamp(60px, 8vw, 80px));
   opacity: 0.28;
   pointer-events: none;
+  will-change: transform, opacity;
+}
+
+@keyframes orb-pulse {
+  0%, 100% { opacity: 0.28; }
+  50% { opacity: 0.38; transform: scale(1.05); }
+}
+@keyframes orb-pulse-slow {
+  0%, 100% { opacity: 0.24; }
+  50% { opacity: 0.32; transform: scale(1.03); }
+}
+
+.animate-orb-pulse {
+  animation: orb-pulse 8s ease-in-out infinite;
+}
+.animate-orb-pulse-slow {
+  animation: orb-pulse-slow 14s ease-in-out infinite;
+}
+.animate-orb-pulse-delay {
+  animation: orb-pulse 10s ease-in-out 2s infinite;
 }
 
 .hero-gradient {
