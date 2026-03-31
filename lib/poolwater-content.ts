@@ -13,7 +13,7 @@ export const navLinks = [
 export const heroPills = [
   "Pool tables everywhere",
   "Arcade high scores",
-  "Foosball + air hockey",
+  "Foosball battles",
   "Real late-night food",
   "No standing around",
 ];
@@ -37,9 +37,9 @@ export const experienceCards = [
       "Classic cabinets with glowing buttons and sharp LEDs create pockets of electric energy around the room - quick bursts of competition between pool games.",
   },
   {
-    title: "Loud in the right way",
+    title: "Foosball showdowns",
     body:
-      "The soundtrack hits with edge, nostalgia, and momentum — enough to raise the room, never enough to kill conversation.",
+      "Fast-paced table battles with chrome rods and smooth play. The perfect mix of competition and social energy between pool games.",
   },
   {
     title: "Food that matters",
@@ -119,7 +119,7 @@ export const currentPrinciples = [
 
 export const eventsHighlights = [
   "Walk in and immediately have something to do",
-  "Bounce between pool, arcade games, foosball, and air hockey",
+  "Foosball tables placed for maximum competition and social energy",
   "Eat real food instead of settling for random leftovers later",
   "Come with friends or show up solo without the room feeling awkward",
   "Stay because the room keeps earning it",
@@ -160,9 +160,9 @@ export const galleryMoodCards = [
       "Neon-lit cabinets with sharp button LEDs become natural gathering spots. Quick 2-minute games spark rivalries and keep energy moving between pool tables.",
   },
   {
-    title: "Food in the room",
+    title: "Foosball intensity",
     body:
-      "Wrapped burgers, fries, trays, grease-paper texture, heat, and the feeling that the room is built to hold people.",
+      "Chrome rods flash under lights. Quick spins and sudden stops. The perfect competitive energy between pool games.",
   },
   {
     title: "Air hockey sparks",
