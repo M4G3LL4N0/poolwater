@@ -16,32 +16,32 @@ export type EcosystemProject = {
 };
 
 export const poolWaterStats: PoolWaterStat[] = [
-  { label: "Target attendance", value: "300–400" },
-  { label: "Entry range", value: "$5–$15" },
-  { label: "Venue model", value: "Partner-first" },
-  { label: "Expansion vision", value: "Multi-city" },
+  { label: "Target Attendance", value: "300–400/night" },
+  { label: "Entry Range", value: "$5–$15" },
+  { label: "Venue Model", value: "Partner-first" },
+  { label: "Expansion Vision", value: "Multi-city" },
 ];
 
 export const poolWaterFeatures: PoolWaterFeature[] = [
   {
-    title: "Activity-driven nightlife",
+    title: "Activity-Driven Nightlife",
     body:
-      "Pool tables, tournaments, and social competition create a more participatory alternative to passive nightlife.",
+      "Pool tables, tournaments, and social competition create a participatory alternative to passive nightlife experiences.",
   },
   {
-    title: "Nostalgic music energy",
+    title: "Nostalgic Music Energy",
     body:
-      "A 90s–2000s hip-hop and rock identity makes the room feel familiar, high-energy, and culturally sticky.",
+      "Curated 90s–2000s hip-hop and rock programming creates a culturally sticky, high-energy atmosphere.",
   },
   {
-    title: "Food-first late-night experience",
+    title: "Food-First Experience",
     body:
-      "Smash burgers, carne asada fries, and vendor pop-ups turn the venue into an all-night destination, not just a bar stop.",
+      "Late-night smash burgers, carne asada fries, and vendor pop-ups transform venues into all-night destinations.",
   },
   {
-    title: "Scalable legal format",
+    title: "Scalable Legal Format",
     body:
-      "Built to operate through compliant venue partnerships first, then evolve into permanent spaces and city-by-city expansion.",
+      "Compliant venue partnerships enable rapid scaling, with a clear path to permanent spaces and multi-city expansion.",
   },
 ];
 

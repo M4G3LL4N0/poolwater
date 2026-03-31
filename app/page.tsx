@@ -29,6 +29,9 @@ export default function HomePage() {
                 <Sparkles className="h-3.5 w-3.5" />
                 POOL WATER
               </div>
+              <div className="mt-3 text-sm text-white/50">
+                A Noaerth Ecosystem Company
+              </div>
 
               <h1 className="mt-7 max-w-4xl text-5xl font-semibold tracking-[-0.05em] text-white md:text-7xl">
                 Don’t just go out. Jump in.
@@ -47,14 +50,14 @@ export default function HomePage() {
                   href="#experience"
                   className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-medium text-black transition hover:bg-white/90"
                 >
-                  Explore the concept
+                  Explore the Concept
                   <ArrowRight className="h-4 w-4" />
                 </Link>
                 <Link
                   href="#ecosystem"
                   className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.03] px-6 py-3 text-sm font-medium text-white/80 transition hover:bg-white/[0.06]"
                 >
-                  View ecosystem
+                  View Ecosystem
                 </Link>
               </div>
             </div>

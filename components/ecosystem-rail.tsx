@@ -21,6 +21,7 @@ export default function EcosystemRail() {
       </div>
 
       <div className="-mx-1 flex snap-x snap-mandatory gap-4 overflow-x-auto px-1 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div className="w-1 shrink-0 md:hidden" />
         {ecosystemProjects.map((project) => {
           const isExternal =
             project.href.startsWith("http://") ||
