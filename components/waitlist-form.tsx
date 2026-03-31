@@ -69,7 +69,12 @@ export default function WaitlistForm({
         className="rounded-[22px] border border-white/10 bg-black/20 px-5 py-4 text-sm text-white outline-none placeholder:text-white/35"
       />
 
-      <button type="submit" disabled={status === "loading"} className="primary-btn w-full">
+      <button 
+        type="submit" 
+        disabled={status === "loading"} 
+        className="primary-btn w-full"
+        data-cta="join-waitlist"
+      >
         {status === "loading" ? "Submitting..." : "Request first access"}
       </button>
 

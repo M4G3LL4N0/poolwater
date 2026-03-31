@@ -1,6 +1,7 @@
 import Link from "next/link";
 import SiteShell from "../../components/site-shell";
-import { eventCards, eventFormats, eventsHighlights } from "../../lib/poolwater-content";
+import { eventFormats, eventsHighlights } from "../../lib/poolwater-content";
+import { getMockEvents } from "../../lib/events";
 
 export default function EventsPage() {
   return (
@@ -41,7 +42,7 @@ export default function EventsPage() {
             <h2 className="section-title mt-4 max-w-3xl">Structured event cards, ready for real dates.</h2>
 
             <div className="mt-12 grid gap-6 lg:grid-cols-3">
-              {eventCards.map((event) => (
+              {getMockEvents().map((event) => (
                 <article key={event.slug} className="overflow-hidden rounded-[30px] soft-card">
                   <div className="h-44 border-b border-white/10 bg-[radial-gradient(circle_at_20%_20%,rgba(89,215,255,0.25),transparent_25%),radial-gradient(circle_at_80%_25%,rgba(124,109,255,0.22),transparent_28%),linear-gradient(135deg,#0b1624,#03070d)] p-6">
                     <span className="rounded-full border border-white/15 bg-black/20 px-4 py-2 text-xs uppercase tracking-[0.22em] text-white/80">
