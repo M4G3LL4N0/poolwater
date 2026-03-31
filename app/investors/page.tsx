@@ -1,11 +1,11 @@
 import SiteShell from "../../components/site-shell";
 import {
-  firstThreeEvents,
-  investorDeck,
   investorMetrics,
-  portfolioUiStructure,
+  investorDeck,
   viralLaunchPlan,
-} from "../../lib/poolwater-content";
+  firstThreeEvents,
+  portfolioUiStructure,
+} from "../../lib/investor-data";
 
 export default function InvestorsPage() {
   return (

@@ -29,3 +29,29 @@ export interface ApiError {
 }
 
 export type WaitlistResponse = ApiSuccess<{ success: boolean }> | ApiError;
+
+export interface InvestorMetric {
+  label: string;
+  value: string;
+}
+
+export interface InvestorSlide {
+  title: string;
+  points: string[];
+}
+
+export interface LaunchPlanPhase {
+  title: string;
+  items: string[];
+}
+
+export interface EventExecutionPlan {
+  title: string;
+  goal: string;
+  timeline: string[];
+}
+
+export interface PortfolioUiNote {
+  title: string;
+  body: string;
+}
