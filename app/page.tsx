@@ -16,13 +16,13 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(89,215,255,0.12),transparent_40%)] opacity-20" />
           <div className="page-hero-inner">
             <div className="max-w-5xl">
-              <p className="section-kicker">Nightlife, redefined</p>
+              <p className="section-kicker">Your night, amplified</p>
               <h1 className="mt-5 max-w-5xl text-5xl font-semibold tracking-[-0.06em] text-white md:text-7xl">
-                The room is alive. <span className="text-cyan-200">Are you?</span>
+                More action. More connection. <span className="text-cyan-200">More you.</span>
               </h1>
               <p className="mt-6 max-w-2xl text-base leading-8 text-white/68 md:text-xl">
-                Pool cues clack. Arcade lights flash. The floor hums with energy. This isn't just 
-                another night out - it's a cultural reset.
+                Pool tables, arcade games, and late-night bites create a space where you can be 
+                yourself, meet new people, and keep the energy going all night.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">

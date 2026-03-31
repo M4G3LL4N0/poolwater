@@ -9,10 +9,11 @@ export default function JoinPage() {
           <div className="page-hero-inner">
             <p className="section-kicker">Join</p>
             <h1 className="mt-5 max-w-4xl text-5xl font-semibold tracking-[-0.06em] text-white md:text-7xl">
-              Be early, not late.
+              Get VIP access to your new favorite nights.
             </h1>
             <p className="mt-6 max-w-3xl text-base leading-8 text-white/68 md:text-xl">
-              Get first access to drops, dates, and private updates before they hit the main feed.
+              Be first in line for exclusive events, special perks, and the chance to shape 
+              the future of nightlife.
             </p>
           </div>
         </section>

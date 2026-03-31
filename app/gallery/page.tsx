@@ -9,11 +9,11 @@ export default function GalleryPage() {
           <div className="page-hero-inner">
             <p className="section-kicker">Gallery</p>
             <h1 className="mt-5 max-w-4xl text-5xl font-semibold tracking-[-0.06em] text-white md:text-7xl">
-              The visual language of the room.
+              Your backdrop for unforgettable nights.
             </h1>
             <p className="mt-6 max-w-3xl text-base leading-8 text-white/68 md:text-xl">
-              Chrome rails catch neon. Blue felt glows under arcade lights. The room pulses with 
-              energy that feels raw, real, and unmistakably now.
+              Every corner of the room is designed to elevate your experience - from the glow of 
+              the arcade to the energy of the pool tables.
             </p>
           </div>
         </section>
