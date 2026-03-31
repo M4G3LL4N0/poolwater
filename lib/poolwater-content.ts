@@ -7,6 +7,9 @@ export const navLinks = [
   { href: "/join", label: "Join" },
 ];
 
+// Note: Investor-related content remains in the file but is only used by the 
+// investors page which is not linked from anywhere public
+
 export const heroPills = [
   "Pool tables everywhere",
   "Arcade glow",

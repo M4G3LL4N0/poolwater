@@ -48,7 +48,8 @@ export default function AboutPage() {
                 <p className="mt-6 text-sm leading-8 text-white/68 md:text-base">
                   POOL WATER is for people who want more from a night out: more motion, more texture,
                   more fun, better food, better interaction, and a place that keeps earning the next
-                  hour.
+                  hour. The room is designed to feel alive from the moment you walk in until the last
+                  game ends.
                 </p>
               </div>
             </div>

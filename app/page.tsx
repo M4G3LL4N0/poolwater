@@ -108,9 +108,9 @@ export default function HomePage() {
               Pool tables, arcade glow, foosball, air hockey, food, and a floor that keeps moving.
             </h2>
             <p className="mt-5 max-w-2xl text-sm leading-7 text-white/65 md:text-base">
-              The best nights are not built around one thing. They are built around a room that keeps
-              opening up. One game becomes another. One group becomes three. One hour becomes the
-              whole night.
+              The best nights are built around movement and connection. The room keeps opening up - 
+              one game becomes another, one group becomes three, one hour becomes the whole night.
+              Designed to feel alive from the first minute to the last.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-4">

@@ -55,7 +55,6 @@ export default function SiteShell({
             <Link href="/events" className="hover:text-white">Events</Link>
             <Link href="/gallery" className="hover:text-white">Gallery</Link>
             <Link href="/join" className="hover:text-white">Join</Link>
-            <Link href="/investors" className="hover:text-white">Investors</Link>
           </div>
         </div>
       </footer>
