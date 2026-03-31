@@ -27,9 +27,9 @@ export const homeStats = [
 
 export const experienceCards = [
   {
-    title: "Pool first",
+    title: "Pool everywhere",
     body:
-      "The room is built around tables, motion, and competitive energy so there is always something happening in front of you.",
+      "Tables anchor the room, creating natural movement and competition. The clack of cues keeps the energy alive all night.",
   },
   {
     title: "Old-school game center feel",
@@ -145,9 +145,9 @@ export const eventFormats = [
 
 export const galleryMoodCards = [
   {
-    title: "Blue felt / chrome rails / neon spill",
+    title: "Blue felt under neon",
     body:
-      "Glossy surfaces, reflected light, dark corners, metallic trim, and that cold electric glow that makes the room feel deeper.",
+      "Pool tables glow under cold electric light. Chrome rails catch reflections. The clack of cues keeps the room alive.",
   },
   {
     title: "Crowded table rows",

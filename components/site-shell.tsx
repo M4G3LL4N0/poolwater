@@ -42,7 +42,8 @@ export default function SiteShell({
           <div>
             <p className="text-lg font-semibold tracking-[-0.04em] text-white">POOL WATER</p>
             <p className="mt-2 max-w-xl text-sm leading-7 text-white/55">
-              A premium late-night social space built around immersive gaming, movement, and food in an atmosphere designed to stay alive all night.
+              Pool tables anchor the room. Neon lights spill across blue felt. The clack of cues 
+              keeps the energy alive all night. This is nightlife built around motion and connection.
             </p>
           </div>
 

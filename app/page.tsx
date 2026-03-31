@@ -16,13 +16,13 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(89,215,255,0.12),transparent_40%)] opacity-20" />
           <div className="page-hero-inner">
             <div className="max-w-5xl">
-              <p className="section-kicker">Your night, amplified</p>
+              <p className="section-kicker">Pool tables everywhere</p>
               <h1 className="mt-5 max-w-5xl text-5xl font-semibold tracking-[-0.06em] text-white md:text-7xl">
-                More action. More connection. <span className="text-cyan-200">More you.</span>
+                The clack of pool cues. The glow of blue felt. <span className="text-cyan-200">Your night.</span>
               </h1>
               <p className="mt-6 max-w-2xl text-base leading-8 text-white/68 md:text-xl">
-                Pool tables, arcade games, and late-night bites create a space where you can be 
-                yourself, meet new people, and keep the energy going all night.
+                Pool tables anchor the room, creating natural movement, competition, and connection 
+                that keeps the night alive from first shot to last.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
@@ -105,12 +105,12 @@ export default function HomePage() {
           <div className="glass-panel rounded-[36px] p-8 md:p-12 hover:shadow-[0_0_80px_rgba(89,215,255,0.12)] transition-all duration-500">
             <p className="section-kicker">The room</p>
             <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-[-0.05em] text-white md:text-5xl">
-              Pool tables, arcade glow, foosball, air hockey, food, and a floor that keeps moving.
+              Pool tables anchor the room. Everything else amplifies it.
             </h2>
             <p className="mt-5 max-w-2xl text-sm leading-7 text-white/65 md:text-base">
-              The best nights are built around movement and connection. The room keeps opening up - 
-              one game becomes another, one group becomes three, one hour becomes the whole night.
-              Designed to feel alive from the first minute to the last.
+              The clack of cues keeps the energy alive. Blue felt glows under neon. Chrome rails 
+              catch reflections. The room is designed around pool first, with everything else 
+              amplifying the experience.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-4">
