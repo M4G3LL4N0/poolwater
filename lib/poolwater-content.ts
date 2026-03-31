@@ -7,15 +7,12 @@ export const navLinks = [
   { href: "/join", label: "Join" },
 ];
 
-// Note: Investor-related content remains in the file but is only used by the 
-// investors page which is not linked from anywhere public
-
 export const heroPills = [
   "Pool tables everywhere",
-  "Arcade high scores",
-  "Foosball battles",
-  "Air hockey sparks",
+  "Arcade glow",
+  "Foosball + air hockey",
   "Real late-night food",
+  "No standing around",
 ];
 
 export const homeStats = [
@@ -27,44 +24,42 @@ export const homeStats = [
 
 export const experienceCards = [
   {
-    title: "Motion by design",
+    title: "Pool first",
     body:
-      "Every table, game and zone forces kinetic energy. Pool cues swing, rods spin, paddles snap - 
-      standing still isn't an option.",
+      "The room is built around tables, movement, and competitive energy so there is always something happening in front of you.",
   },
   {
-    title: "Arcade energy",
+    title: "Old-school game center feel",
     body:
-      "Classic cabinets with glowing buttons and sharp LEDs create pockets of electric energy around the room - quick bursts of competition between pool games.",
+      "Arcade games, foosball, and air hockey add movement and variety without killing the room’s flow.",
   },
   {
-    title: "Foosball showdowns",
+    title: "Loud in the right way",
     body:
-      "Fast-paced table battles with chrome rods and smooth play. The perfect mix of competition and social energy between pool games.",
+      "The soundtrack hits with edge, nostalgia, and momentum — enough to raise the room, never enough to kill conversation.",
   },
   {
-    title: "Air hockey sparks",
+    title: "Food that matters",
     body:
-      "Fast movement, edge lighting, and sudden stops create electric competitive bursts. The perfect energy boost between pool games.",
+      "Smash burgers, fries, and late-night comfort food keep people in the building longer and make the night feel complete.",
   },
 ];
 
 export const differenceCards = [
   {
-    title: "No idle positions",
-    body:  
-      "The floor plan eliminates dead zones. Every sightline ends at an active game in motion, pulling you deeper in.",
-  },
-  {
-    title: "Organic interaction",
-    body:  
-      "Every game surface becomes a social surface. The clack of balls, turn-taking rhythm, and shared 
-      victories create conversation without the usual nightlife pressure.",
-  },
-  {
-    title: "Real food, real late",
+    title: "You do not just stand there",
     body:
-      "Smash burgers, fries, and late-night bites keep people in the building longer and make the night feel complete.",
+      "Everything is built to make it easy to jump into the room instead of hovering around hoping something starts.",
+  },
+  {
+    title: "Meeting people feels natural",
+    body:
+      "Games remove friction. You do not need forced small talk when the room itself creates interaction points.",
+  },
+  {
+    title: "Better value than the usual night out",
+    body:
+      "The format is designed to feel full and alive without making the night feel like a financial mistake.",
   },
 ];
 
@@ -72,26 +67,25 @@ export const aboutBlocks = [
   {
     title: "Why it started",
     body:
-      "We built POOL WATER to solve one problem: great nights need organic interaction points. Most venues rely on alcohol or loud music to force connection - we build it into the design.",
+      "POOL WATER came from a simple thought: going out should feel active, social, and worth remembering. Too many nights are expensive, passive, and weirdly empty even when the room is full.",
   },
   {
     title: "What it is",
     body:
-      "A premium late-night experience where pool tables anchor the action and arcade cabinets create electric competitive pockets. The room balances strategy games with quick-fire arcade battles.",
+      "POOL WATER is a late-night social playground built around games, movement, food, and a room that actually feels alive.",
   },
   {
     title: "What it is not",
     body:
-      "Not a club. Not a bar. Not somewhere you go just to be seen. This is a designed space where the night unfolds naturally through activity.",
+      "It is not bottle-service theater. It is not a dead pool hall. It is not a corporate arcade. It is not a room where you spend the night waiting for something to happen.",
   },
 ];
 
 export const currentPrinciples = [
   {
-    title: "Physics engine",
+    title: "Movement over posing",
     body:
-      "Every surface rebounds energy. Cues strike balls, paddles slam pucks, rods whip figures - 
-      the room's physics won't let momentum die.",
+      "The room is built for action, not performance. Games create flow. Flow creates energy. Energy creates the night.",
   },
   {
     title: "Chaos, but controlled",
@@ -99,10 +93,9 @@ export const currentPrinciples = [
       "The right room feels loose, loud, and alive without tipping into disorder. The best nights feel effortless because the system underneath them is tight.",
   },
   {
-    title: "Conversation by design",
+    title: "No weird barriers",
     body:
-      "Every element invites interaction naturally – table turns create organic pauses, high scores 
-      spark challenges, and opposing teams become friends by the third game.",
+      "The format strips away the awkwardness of nightlife by giving people something to do the second they walk in.",
   },
   {
     title: "Everybody should feel pulled in",
@@ -123,10 +116,10 @@ export const currentPrinciples = [
 
 export const eventsHighlights = [
   "Walk in and immediately have something to do",
-  "Foosball tables placed for maximum competition and social energy",
-  "Smash burgers, fries, and late-night bites that keep the energy going",
-  "Show up solo and leave with friends - the room makes interaction effortless",
-  "Air hockey tables placed for fast-paced competitive energy",
+  "Bounce between pool, arcade games, foosball, and air hockey",
+  "Eat real food instead of settling for random leftovers later",
+  "Come with friends or show up solo without the room feeling awkward",
+  "Stay because the room keeps earning it",
 ];
 
 export const eventFormats = [
@@ -141,33 +134,74 @@ export const eventFormats = [
       "Structured pool competition pushes the room’s energy higher while keeping the whole floor engaged.",
   },
   {
-    title: "Arcade Showdown Nights",
+    title: "Arcade Heavy Nights",
     body:
-      "High-score chases and head-to-head battles at the cabinets. The room pulses with quick-fire competition and friendly trash talk between machines.",
+      "More side-game action, faster movement, and a room that feels extra kinetic from the minute doors open.",
+  },
+];
+
+export const eventCards = [
+  {
+    slug: "opening-night",
+    status: "Coming soon",
+    title: "Opening Night",
+    city: "Los Angeles",
+    venue: "Venue announced privately",
+    dateLabel: "TBA",
+    timeLabel: "Late night",
+    summary:
+      "The first full-room expression of Pool Water: dense tables, side-game motion, late food, and a floor designed to pull people in quickly.",
+    features: ["Pool-heavy room", "Arcade glow", "Real food", "High-energy social floor"],
+    cta: "Join for first access",
+  },
+  {
+    slug: "tournament-night",
+    status: "In development",
+    title: "Tournament Night",
+    city: "Los Angeles",
+    venue: "Private release first",
+    dateLabel: "TBA",
+    timeLabel: "Late night",
+    summary:
+      "A sharper competition format with more visible challenge moments and a tighter floor rhythm from the first hour through close.",
+    features: ["Table tournaments", "Fast room cadence", "Stronger crowd moments", "Repeat-player pull"],
+    cta: "Get notified first",
+  },
+  {
+    slug: "arcade-heavy",
+    status: "Planned",
+    title: "Arcade Heavy",
+    city: "Los Angeles",
+    venue: "Private release first",
+    dateLabel: "TBA",
+    timeLabel: "Late night",
+    summary:
+      "A more kinetic variation with stronger side-game energy, tighter movement, and a room that feels even faster from corner to corner.",
+    features: ["Air hockey", "Foosball", "Arcade focus", "Dense social energy"],
+    cta: "Join waitlist",
   },
 ];
 
 export const galleryMoodCards = [
   {
-    title: "Blue felt under neon",
+    title: "Blue felt / chrome rails / neon spill",
     body:
-      "Pool tables glow under cold electric light. Chrome rails catch reflections. The clack of cues keeps the room alive.",
+      "Glossy surfaces, reflected light, dark corners, metallic trim, and that cold electric glow that makes the room feel deeper.",
   },
   {
-    title: "Flow states",
+    title: "Crowded table rows",
     body:
-      "Bodies in orbit around tables. Cue sticks arcing through neon light. Sudden pivots between games. 
-      The room keeps rewriting its own energy map.",
+      "Long sight lines, clusters of tables, side conversations, people circling games, and motion everywhere you look.",
   },
   {
-    title: "Arcade battle stations",
+    title: "Arcade heat",
     body:
-      "Neon-lit cabinets with sharp button LEDs become natural gathering spots. Quick 2-minute games spark rivalries and keep energy moving between pool tables.",
+      "Old-school cabinets, glowing buttons, soft static light, fast hands, sharp shadows, and that late-night game center pulse.",
   },
   {
-    title: "Foosball intensity",
+    title: "Food in the room",
     body:
-      "Chrome rods flash under lights. Quick spins and sudden stops. The perfect competitive energy between pool games.",
+      "Wrapped burgers, fries, trays, grease-paper texture, heat, and the feeling that the room is built to hold people.",
   },
   {
     title: "Air hockey sparks",
@@ -175,9 +209,9 @@ export const galleryMoodCards = [
       "Fast movement, edge lighting, reflective surfaces, hands leaning in, and short bursts of noise that lift the whole floor.",
   },
   {
-    title: "Late-night bites",
+    title: "After-midnight density",
     body:
-      "Grease-paper wrappers, stacked trays, and the smell of real food that keeps people in the room longer.",
+      "The room should feel fuller at midnight than it did at ten — tighter, louder, warmer, and more alive.",
   },
 ];
 
@@ -382,7 +416,7 @@ export const firstThreeEvents = [
       "5:00 PM — team briefing on brand language and guest experience consistency",
       "8:00 PM — doors with sharper host tone and clearer room rhythm",
       "9:00 PM — signature competition format introduced",
-      "10:00 PM — founder or host touchpoints in the room to shape perception",
+      "10:00 PM — host touchpoints in the room to shape perception",
       "11:30 PM — strongest visuals captured for long-term campaign assets",
       "12:30 AM — feature returning guests and visible community formation",
       "2:00 AM — close with clear future cadence so guests know this is not random",
@@ -390,3 +424,25 @@ export const firstThreeEvents = [
   },
 ];
 
+export const portfolioUiStructure = [
+  {
+    title: "Noaerth portfolio homepage role",
+    body:
+      "POOL WATER should appear there as an experiential entertainment company, but only in a clean strategic context. No public party-language should bleed into the parent-company homepage.",
+  },
+  {
+    title: "Card system",
+    body:
+      "Use premium tiles with a cinematic game-floor visual language: chrome, felt texture, cool blue light, arcade glow, reflective surfaces, and strong dark contrast.",
+  },
+  {
+    title: "Copy positioning",
+    body:
+      "Describe POOL WATER at the parent-company level as an adult social entertainment brand or experiential nightlife platform — not as a rave, afters company, or underground scene operator.",
+  },
+  {
+    title: "Investor separation",
+    body:
+      "Public Pool Water pages should feel cultural and user-first. Parent-company pages should feel strategic, restrained, and portfolio-oriented. Keep them separate on purpose.",
+  },
+];
