@@ -217,10 +217,21 @@ export const galleryMoodCards = [
 
 export const joinReasons = [
   "Early access to drops",
-  "First look at event dates",
+  "First look at event dates", 
   "Private updates before public posts",
   "Priority on special-format nights",
+  "Exclusive invites to test events",
+  "Founder updates and insights",
 ];
+
+export const waitlistMessages = {
+  headline: "Be early, not late.",
+  subtitle: "Get first access to drops, dates, and private updates before they hit the main feed.",
+  formTitle: "Lock your place early.",
+  formDescription: "Enter your details for first access to event drops, private updates, and priority release windows.",
+  successMessage: "You're in! We'll be in touch soon.",
+  errorMessage: "Something went wrong. Please try again.",
+};
 
 export const investorDeck = [
   {

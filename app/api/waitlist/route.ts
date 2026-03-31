@@ -1,15 +1,16 @@
 import { NextResponse } from "next/server";
-import { getSupabaseClient } from "@/lib/supabase";
+import { getSupabaseClient, getWaitlistCount } from "@/lib/supabase";
+import { WaitlistResponse } from "@/lib/types";
 
-export async function POST(req: Request) {
+export async function POST(req: Request): Promise<NextResponse<WaitlistResponse>> {
   try {
     const body = await req.json();
     const email = typeof body.email === "string" ? body.email.trim().toLowerCase() : "";
     const phone = typeof body.phone === "string" ? body.phone.trim() : "";
     const source = typeof body.source === "string" ? body.source.trim() : "website";
 
-    if (!email) {
-      return NextResponse.json({ error: "Email is required." }, { status: 400 });
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      return NextResponse.json({ error: "Valid email is required." }, { status: 400 });
     }
 
     const supabase = getSupabaseClient();
@@ -23,7 +24,7 @@ export async function POST(req: Request) {
       {
         onConflict: "email",
         ignoreDuplicates: false,
-      },
+      }
     );
 
     if (error) {
@@ -31,7 +32,19 @@ export async function POST(req: Request) {
     }
 
     return NextResponse.json({ success: true });
-  } catch {
-    return NextResponse.json({ error: "Unable to submit waitlist request." }, { status: 500 });
+  } catch (error) {
+    return NextResponse.json(
+      { error: "Unable to submit waitlist request." },
+      { status: 500 }
+    );
+  }
+}
+
+export async function GET(): Promise<NextResponse<{ count: number }>> {
+  try {
+    const count = await getWaitlistCount();
+    return NextResponse.json({ count });
+  } catch (error) {
+    return NextResponse.json({ count: 0 }, { status: 500 });
   }
 }

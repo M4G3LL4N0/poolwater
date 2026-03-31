@@ -10,5 +10,18 @@ export function getSupabaseClient() {
 
   return createClient(url, anonKey, {
     db: { schema: "poolwater" },
+    auth: {
+      persistSession: false,
+    },
   });
+}
+
+export async function getWaitlistCount() {
+  const supabase = getSupabaseClient();
+  const { count, error } = await supabase
+    .from("waitlist")
+    .select("*", { count: "exact", head: true });
+
+  if (error) throw error;
+  return count || 0;
 }
