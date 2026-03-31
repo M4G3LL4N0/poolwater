@@ -18,11 +18,11 @@ export default function HomePage() {
             <div className="max-w-5xl">
               <p className="section-kicker">Pool tables everywhere</p>
               <h1 className="mt-5 max-w-5xl text-5xl font-semibold tracking-[-0.06em] text-white md:text-7xl">
-                The clack of pool cues. The glow of blue felt. <span className="text-cyan-200">Your night.</span>
+                Constant motion. <span className="text-cyan-200">Zero waiting.</span>
               </h1>
               <p className="mt-6 max-w-2xl text-base leading-8 text-white/68 md:text-xl">
-                Pool tables anchor the action while air hockey, foosball and arcade games create quick 
-                competitive bursts. The room balances strategy games with fast-paced table battles.
+                Every element forces movement - pool cues swing, foosball rods spin, air hockey paddles 
+                snap. The room is engineered so standing still isn't an option.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">

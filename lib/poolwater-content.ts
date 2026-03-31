@@ -27,9 +27,10 @@ export const homeStats = [
 
 export const experienceCards = [
   {
-    title: "Pool everywhere",
+    title: "Motion by design",
     body:
-      "Tables anchor the room, creating natural movement and competition. The clack of cues keeps the energy alive all night.",
+      "Every table, game and zone forces kinetic energy. Pool cues swing, rods spin, paddles snap - 
+      standing still isn't an option.",
   },
   {
     title: "Arcade energy",
@@ -50,9 +51,9 @@ export const experienceCards = [
 
 export const differenceCards = [
   {
-    title: "You do not just stand there",
-    body:
-      "Everything is built to make it easy to jump into the room instead of hovering around hoping something starts.",
+    title: "No idle positions",
+    body:  
+      "The floor plan eliminates dead zones. Every sightline ends at an active game in motion, pulling you deeper in.",
   },
   {
     title: "Meeting people feels natural",
@@ -86,9 +87,10 @@ export const aboutBlocks = [
 
 export const currentPrinciples = [
   {
-    title: "Movement over posing",
+    title: "Physics engine",
     body:
-      "The room is built for action, not performance. Games create flow. Flow creates energy. Energy creates the night.",
+      "Every surface rebounds energy. Cues strike balls, paddles slam pucks, rods whip figures - 
+      the room's physics won't let momentum die.",
   },
   {
     title: "Chaos, but controlled",
@@ -150,9 +152,10 @@ export const galleryMoodCards = [
       "Pool tables glow under cold electric light. Chrome rails catch reflections. The clack of cues keeps the room alive.",
   },
   {
-    title: "Crowded table rows",
+    title: "Flow states",
     body:
-      "Long sight lines, clusters of tables, side conversations, people circling games, and motion everywhere you look.",
+      "Bodies in orbit around tables. Cue sticks arcing through neon light. Sudden pivots between games. 
+      The room keeps rewriting its own energy map.",
   },
   {
     title: "Arcade battle stations",
