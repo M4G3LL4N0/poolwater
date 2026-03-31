@@ -14,7 +14,7 @@ export const heroPills = [
   "Pool tables everywhere",
   "Arcade high scores",
   "Foosball battles",
-  "Real late-night food",
+  "Air hockey sparks",
   "No standing around",
 ];
 
@@ -42,9 +42,9 @@ export const experienceCards = [
       "Fast-paced table battles with chrome rods and smooth play. The perfect mix of competition and social energy between pool games.",
   },
   {
-    title: "Food that matters",
+    title: "Air hockey sparks",
     body:
-      "Smash burgers, fries, and late-night comfort food keep people in the building longer and make the night feel complete.",
+      "Fast movement, edge lighting, and sudden stops create electric competitive bursts. The perfect energy boost between pool games.",
   },
 ];
 
@@ -122,7 +122,7 @@ export const eventsHighlights = [
   "Foosball tables placed for maximum competition and social energy",
   "Eat real food instead of settling for random leftovers later",
   "Come with friends or show up solo without the room feeling awkward",
-  "Stay because the room keeps earning it",
+  "Air hockey tables placed for fast-paced competitive energy",
 ];
 
 export const eventFormats = [
@@ -170,9 +170,9 @@ export const galleryMoodCards = [
       "Fast movement, edge lighting, reflective surfaces, hands leaning in, and short bursts of noise that lift the whole floor.",
   },
   {
-    title: "After-midnight density",
+    title: "Air hockey intensity",
     body:
-      "The room should feel fuller at midnight than it did at ten — tighter, louder, warmer, and more alive.",
+      "Edge lighting flashes with every shot. Quick hands lean in. The puck ricochets faster than the night moves.",
   },
 ];
 

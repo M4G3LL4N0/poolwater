@@ -21,8 +21,8 @@ export default function HomePage() {
                 The clack of pool cues. The glow of blue felt. <span className="text-cyan-200">Your night.</span>
               </h1>
               <p className="mt-6 max-w-2xl text-base leading-8 text-white/68 md:text-xl">
-                Pool tables anchor the action while foosball and arcade games create quick competitive 
-                bursts. The room balances strategy games with fast-paced table battles.
+                Pool tables anchor the action while air hockey, foosball and arcade games create quick 
+                competitive bursts. The room balances strategy games with fast-paced table battles.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
