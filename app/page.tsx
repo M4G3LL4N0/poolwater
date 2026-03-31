@@ -16,14 +16,13 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(89,215,255,0.12),transparent_40%)] opacity-20" />
           <div className="page-hero-inner">
             <div className="max-w-5xl">
-              <p className="section-kicker">Pool tables everywhere</p>
+              <p className="section-kicker">Built for interaction</p>
               <h1 className="mt-5 max-w-5xl text-5xl font-semibold tracking-[-0.06em] text-white md:text-7xl">
-                Constant motion. <span className="text-cyan-200">Zero waiting.</span>
+                Conversation built into every cue. <span className="text-cyan-200">Natual movement baked in.</span>
               </h1>
               <p className="mt-6 max-w-2xl text-base leading-8 text-white/68 md:text-xl">
-                Every element forces movement - pool cues swing, foosball rods spin, air hockey paddles 
-                snap. Smash burgers and fries keep the energy going. The room is engineered so standing 
-                still isn't an option.
+                The room eliminates awkward pauses - shots lead to cheers, queue turns spark conversations, 
+                and shared tables create instant bonds. No forced icebreakers needed.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">

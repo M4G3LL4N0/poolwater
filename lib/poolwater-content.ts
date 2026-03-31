@@ -56,9 +56,10 @@ export const differenceCards = [
       "The floor plan eliminates dead zones. Every sightline ends at an active game in motion, pulling you deeper in.",
   },
   {
-    title: "Meeting people feels natural",
-    body:
-      "Games remove friction. You do not need forced small talk when the room itself creates interaction points.",
+    title: "Organic interaction",
+    body:  
+      "Every game surface becomes a social surface. The clack of balls, turn-taking rhythm, and shared 
+      victories create conversation without the usual nightlife pressure.",
   },
   {
     title: "Real food, real late",
@@ -71,7 +72,7 @@ export const aboutBlocks = [
   {
     title: "Why it started",
     body:
-      "We built POOL WATER around one idea: nights out should feel active, social, and worth staying for. Most places leave you standing around or wondering when the room will come alive.",
+      "We built POOL WATER to solve one problem: great nights need organic interaction points. Most venues rely on alcohol or loud music to force connection - we build it into the design.",
   },
   {
     title: "What it is",
@@ -98,9 +99,10 @@ export const currentPrinciples = [
       "The right room feels loose, loud, and alive without tipping into disorder. The best nights feel effortless because the system underneath them is tight.",
   },
   {
-    title: "No weird barriers",
+    title: "Conversation by design",
     body:
-      "The format strips away the awkwardness of nightlife by giving people something to do the second they walk in.",
+      "Every element invites interaction naturally – table turns create organic pauses, high scores 
+      spark challenges, and opposing teams become friends by the third game.",
   },
   {
     title: "Everybody should feel pulled in",
@@ -123,7 +125,7 @@ export const eventsHighlights = [
   "Walk in and immediately have something to do",
   "Foosball tables placed for maximum competition and social energy",
   "Smash burgers, fries, and late-night bites that keep the energy going",
-  "Come with friends or show up solo without the room feeling awkward",
+  "Show up solo and leave with friends - the room makes interaction effortless",
   "Air hockey tables placed for fast-paced competitive energy",
 ];
 
