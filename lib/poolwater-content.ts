@@ -12,7 +12,7 @@ export const navLinks = [
 
 export const heroPills = [
   "Pool tables everywhere",
-  "Arcade glow",
+  "Arcade high scores",
   "Foosball + air hockey",
   "Real late-night food",
   "No standing around",
@@ -32,9 +32,9 @@ export const experienceCards = [
       "Tables anchor the room, creating natural movement and competition. The clack of cues keeps the energy alive all night.",
   },
   {
-    title: "Old-school game center feel",
+    title: "Arcade energy",
     body:
-      "Arcade games, foosball, and air hockey add movement and variety without killing the room’s flow.",
+      "Classic cabinets with glowing buttons and sharp LEDs create pockets of electric energy around the room - quick bursts of competition between pool games.",
   },
   {
     title: "Loud in the right way",
@@ -75,7 +75,7 @@ export const aboutBlocks = [
   {
     title: "What it is",
     body:
-      "A premium late-night experience where games, food, and movement create constant energy. The room pulls you in from the moment you arrive.",
+      "A premium late-night experience where pool tables anchor the action and arcade cabinets create electric competitive pockets. The room balances strategy games with quick-fire arcade battles.",
   },
   {
     title: "What it is not",
@@ -137,9 +137,9 @@ export const eventFormats = [
       "Structured pool competition pushes the room’s energy higher while keeping the whole floor engaged.",
   },
   {
-    title: "Arcade Heavy Nights",
+    title: "Arcade Showdown Nights",
     body:
-      "More side-game action, faster movement, and a room that feels extra kinetic from the minute doors open.",
+      "High-score chases and head-to-head battles at the cabinets. The room pulses with quick-fire competition and friendly trash talk between machines.",
   },
 ];
 
@@ -155,9 +155,9 @@ export const galleryMoodCards = [
       "Long sight lines, clusters of tables, side conversations, people circling games, and motion everywhere you look.",
   },
   {
-    title: "Arcade heat",
+    title: "Arcade battle stations",
     body:
-      "Old-school cabinets, glowing buttons, soft static light, fast hands, sharp shadows, and that late-night game center pulse.",
+      "Neon-lit cabinets with sharp button LEDs become natural gathering spots. Quick 2-minute games spark rivalries and keep energy moving between pool tables.",
   },
   {
     title: "Food in the room",
