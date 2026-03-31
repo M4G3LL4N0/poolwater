@@ -22,7 +22,8 @@ export default function HomePage() {
               </h1>
               <p className="mt-6 max-w-2xl text-base leading-8 text-white/68 md:text-xl">
                 Every element forces movement - pool cues swing, foosball rods spin, air hockey paddles 
-                snap. The room is engineered so standing still isn't an option.
+                snap. Smash burgers and fries keep the energy going. The room is engineered so standing 
+                still isn't an option.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">

@@ -15,7 +15,7 @@ export const heroPills = [
   "Arcade high scores",
   "Foosball battles",
   "Air hockey sparks",
-  "No standing around",
+  "Real late-night food",
 ];
 
 export const homeStats = [
@@ -61,9 +61,9 @@ export const differenceCards = [
       "Games remove friction. You do not need forced small talk when the room itself creates interaction points.",
   },
   {
-    title: "Better value than the usual night out",
+    title: "Real food, real late",
     body:
-      "The format is designed to feel full and alive without making the night feel like a financial mistake.",
+      "Smash burgers, fries, and late-night bites keep people in the building longer and make the night feel complete.",
   },
 ];
 
@@ -122,7 +122,7 @@ export const currentPrinciples = [
 export const eventsHighlights = [
   "Walk in and immediately have something to do",
   "Foosball tables placed for maximum competition and social energy",
-  "Eat real food instead of settling for random leftovers later",
+  "Smash burgers, fries, and late-night bites that keep the energy going",
   "Come with friends or show up solo without the room feeling awkward",
   "Air hockey tables placed for fast-paced competitive energy",
 ];
@@ -173,9 +173,9 @@ export const galleryMoodCards = [
       "Fast movement, edge lighting, reflective surfaces, hands leaning in, and short bursts of noise that lift the whole floor.",
   },
   {
-    title: "Air hockey intensity",
+    title: "Late-night bites",
     body:
-      "Edge lighting flashes with every shot. Quick hands lean in. The puck ricochets faster than the night moves.",
+      "Grease-paper wrappers, stacked trays, and the smell of real food that keeps people in the room longer.",
   },
 ];
 
