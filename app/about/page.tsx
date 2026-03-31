@@ -10,11 +10,11 @@ export default function AboutPage() {
           <div className="page-hero-inner">
             <p className="section-kicker">About</p>
             <h1 className="mt-5 max-w-4xl text-5xl font-semibold tracking-[-0.06em] text-white md:text-7xl">
-              A better reason to stay out.
+              Nightlife that moves you - literally.
             </h1>
             <p className="mt-6 max-w-3xl text-base leading-8 text-white/68 md:text-xl">
-              POOL WATER was built around a basic truth: the best nights feel active, social,
-              and hard to leave.
+              POOL WATER isn't just a venue - it's a cultural reset. We're redefining what it means 
+              to go out, one game at a time.
             </p>
           </div>
         </section>

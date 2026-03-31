@@ -12,7 +12,8 @@ export default function GalleryPage() {
               The visual language of the room.
             </h1>
             <p className="mt-6 max-w-3xl text-base leading-8 text-white/68 md:text-xl">
-              Premium, dark, reflective, game-heavy, and colder than a typical nightlife build.
+              Chrome rails catch neon. Blue felt glows under arcade lights. The room pulses with 
+              energy that feels raw, real, and unmistakably now.
             </p>
           </div>
         </section>

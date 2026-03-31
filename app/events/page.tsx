@@ -10,10 +10,11 @@ export default function EventsPage() {
           <div className="page-hero-inner">
             <p className="section-kicker">Events</p>
             <h1 className="mt-5 max-w-4xl text-5xl font-semibold tracking-[-0.06em] text-white md:text-7xl">
-              Nights built to keep moving.
+              Nights that don't just happen - they escalate.
             </h1>
             <p className="mt-6 max-w-3xl text-base leading-8 text-white/68 md:text-xl">
-              Different formats. Same principle. The room should already feel alive when you walk in.
+              From open play to tournaments, every format pushes the room harder. The energy builds. 
+              The connections deepen. The night unfolds.
             </p>
           </div>
         </section>
