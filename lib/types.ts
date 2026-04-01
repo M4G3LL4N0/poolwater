@@ -111,31 +111,40 @@ export interface AdminMetricCard {
 
 export interface AdminOverviewResponse {
   metrics: AdminMetricCard[];
-  latestWaitlist?: Array<{
+  latestWaitlist: Array<{
     id: string;
     email: string;
     created_at: string;
   }>;
-  latestContacts?: Array<{
+  latestContacts: Array<{
     id: string;
     name: string;
     email: string;
     created_at: string;
   }>;
-  latestVenueInquiries?: Array<{
+  latestVenueInquiries: Array<{
     id: string;
     venue_name: string;
     contact_name: string;
     email: string;
     created_at: string;
   }>;
-  latestEvents?: Array<{
+  latestEvents: Array<{
     id: string;
     title: string;
     created_at: string;
   }>;
   source: "supabase" | "fallback";
   error?: string | null;
+}
+
+export interface ActivityItem {
+  id: string;
+  email?: string;
+  name?: string;
+  venue_name?: string;
+  title?: string;
+  created_at?: string;
 }
 
 export type AdminActivityType = 'waitlist' | 'contact' | 'venue' | 'event';

@@ -18,6 +18,7 @@ async function getAdminData() {
       latestContacts: [],
       latestVenueInquiries: [],
       latestEvents: [],
+      source: "fallback"
     };
   }
 }
@@ -37,21 +38,12 @@ function MetricCard({ metric }: { metric: AdminMetricCard }) {
   );
 }
 
-interface ActivityItem {
-  id: string;
-  email?: string;
-  name?: string;
-  venue_name?: string;
-  title?: string;
-  created_at?: string;
-}
-
 function ActivityList({
   title,
-  items
+  items = []
 }: {
   title: string;
-  items: ActivityItem[]
+  items?: ActivityItem[]
 }) {
   if (!items.length) {
     return (
@@ -82,8 +74,7 @@ function ActivityList({
 }
 
 export default async function AdminPage() {
-  const rawData = await getAdminData();
-  const data = rawData as AdminOverviewResponse;
+  const data = await getAdminData();
 
   return (
     <div className="p-6 max-w-6xl mx-auto">
