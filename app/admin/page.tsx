@@ -1,71 +1,57 @@
-import type { AdminMetricCard, AdminOverviewResponse } from "@/lib/types";
+import SiteShell from "@/components/site-shell";
+import { AdminOverviewResponse } from "@/lib/types";
 
-async function getAdminData() {
-  try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/admin/overview`, {
-      next: { revalidate: 60 },
-    });
-    return await response.json();
-  } catch (error) {
-    return {
-      metrics: [
-        { label: "Waitlist Entries", value: 0, loading: true },
-        { label: "Contact Submissions", value: 0, loading: true },
-        { label: "Venue Inquiries", value: 0, loading: true },
-        { label: "Events", value: 0, loading: true },
-      ],
-      latestWaitlist: [],
-      latestContacts: [],
-      latestVenueInquiries: [],
-      latestEvents: [],
-      source: "fallback"
-    };
-  }
-}
+type ActivityItem = {
+  id?: string;
+  email?: string;
+  name?: string;
+  venue_name?: string;
+  contact_name?: string;
+  created_at?: string;
+};
 
-function MetricCard({ metric }: { metric: AdminMetricCard }) {
+function MetricCard({
+  metric,
+}: {
+  metric: { label: string; value: string | number };
+}) {
   return (
-    <div className="p-4 border rounded-lg bg-white shadow-sm">
-      <div className="text-sm text-gray-500 mb-1">{metric.label}</div>
-      <div className="text-2xl font-bold">
-        {metric.loading ? (
-          <div className="h-8 w-12 bg-gray-200 animate-pulse rounded" />
-        ) : (
-          metric.value.toLocaleString()
-        )}
-      </div>
+    <div className="soft-card rounded-[24px] p-5">
+      <p className="text-xs uppercase tracking-[0.2em] text-white/40">
+        {metric.label}
+      </p>
+      <p className="mt-2 text-2xl font-semibold text-white">{metric.value}</p>
     </div>
   );
 }
 
 function ActivityList({
   title,
-  items = []
+  items = [],
 }: {
   title: string;
-  items?: ActivityItem[]
+  items?: ActivityItem[];
 }) {
-  if (!items.length) {
+  if (items.length === 0) {
     return (
-      <div>
-        <h2 className="text-xl font-semibold mb-4">{title}</h2>
-        <p className="text-sm text-gray-500">No recent activity</p>
+      <div className="soft-card rounded-[24px] p-5">
+        <p className="text-sm text-white/60">{title}</p>
+        <p className="mt-3 text-sm text-white/40">No data yet</p>
       </div>
     );
   }
 
   return (
-    <div>
-      <h2 className="text-xl font-semibold mb-4">{title}</h2>
-      <div className="space-y-2">
-        {items.map((item) => (
-          <div key={item.id} className="p-2 border-b">
-            <div className="font-medium">
-              {item.email || item.name || item.venue_name || item.title}
-            </div>
-            <div className="text-sm text-gray-500">
-              {item.created_at ? new Date(item.created_at).toLocaleString() : "No date"}
-            </div>
+    <div className="soft-card rounded-[24px] p-5">
+      <p className="text-sm text-white/60">{title}</p>
+      <div className="mt-4 space-y-3">
+        {items.map((item, i) => (
+          <div key={item.id || i} className="text-sm text-white/80">
+            {item.email ||
+              item.name ||
+              item.venue_name ||
+              item.contact_name ||
+              "Entry"}
           </div>
         ))}
       </div>
@@ -73,39 +59,61 @@ function ActivityList({
   );
 }
 
+async function getData(): Promise<AdminOverviewResponse> {
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL || ""}/api/admin/overview`, {
+      cache: "no-store",
+    });
+
+    if (!res.ok) {
+      throw new Error("Failed fetch");
+    }
+
+    return res.json();
+  } catch {
+    return {
+      metrics: [],
+      latestWaitlist: [],
+      latestContacts: [],
+      latestVenueInquiries: [],
+      source: "fallback",
+    };
+  }
+}
+
 export default async function AdminPage() {
-  const data = await getAdminData();
+  const data = await getData();
 
   return (
-    <div className="p-6 max-w-6xl mx-auto">
-      <h1 className="text-2xl font-bold mb-6">Admin Overview</h1>
-      
-      {/* Metrics Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-        {data.metrics.map((metric: AdminMetricCard) => (
-          <MetricCard key={metric.label} metric={metric} />
-        ))}
-      </div>
+    <SiteShell>
+      <main className="container-shell py-12">
+        <h1 className="text-3xl font-semibold text-white mb-8">
+          Admin Overview
+        </h1>
 
-      {/* Latest Activity Sections */}
-      <div className="grid gap-8 md:grid-cols-2">
-        <ActivityList 
-          title="Latest Waitlist Entries" 
-          items={data.latestWaitlist} 
-        />
-        <ActivityList 
-          title="Latest Contact Submissions" 
-          items={data.latestContacts} 
-        />
-        <ActivityList 
-          title="Latest Venue Inquiries" 
-          items={data.latestVenueInquiries} 
-        />
-        <ActivityList 
-          title="Latest Events" 
-          items={data.latestEvents} 
-        />
-      </div>
-    </div>
+        {/* Metrics */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+          {(data.metrics || []).map((metric) => (
+            <MetricCard key={metric.label} metric={metric} />
+          ))}
+        </div>
+
+        {/* Activity */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <ActivityList
+            title="Latest Waitlist Entries"
+            items={data.latestWaitlist ?? []}
+          />
+          <ActivityList
+            title="Latest Contact Submissions"
+            items={data.latestContacts ?? []}
+          />
+          <ActivityList
+            title="Latest Venue Inquiries"
+            items={data.latestVenueInquiries ?? []}
+          />
+        </div>
+      </main>
+    </SiteShell>
   );
 }
