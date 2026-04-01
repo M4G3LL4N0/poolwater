@@ -1,11 +1,12 @@
-import {
+import type {
   InvestorMetric,
   InvestorSlide,
   LaunchPlanPhase,
   EventExecutionPlan,
   PortfolioUiNote,
-} from "../lib/types";
+} from "@/lib/types";
 
+// Core metrics for investor overview
 export const investorMetrics: InvestorMetric[] = [
   { label: "Initial event target", value: "300–400 attendees" },
   { label: "Entry strategy", value: "$5–$15 volume model" },
@@ -13,8 +14,11 @@ export const investorMetrics: InvestorMetric[] = [
   { label: "Phase 2 model", value: "Permanent flagship" },
   { label: "Long-term motion", value: "Multi-city rollout" },
   { label: "Category", value: "Adult social entertainment" },
+  { label: "Target demo", value: "21–35, social but not club-focused" },
+  { label: "Repeat rate goal", value: "40%+ within 90 days" },
 ];
 
+// Full pitch deck content
 export const investorDeck: InvestorSlide[] = [
   {
     title: "1. Cover",
@@ -24,47 +28,124 @@ export const investorDeck: InvestorSlide[] = [
       "A scalable social entertainment brand built for repeat attendance and city-by-city expansion",
     ],
   },
-  // ... rest of deck slides
+  {
+    title: "2. The Gap",
+    points: [
+      "Nightlife has bifurcated into expensive bottle-service theater and dead pool halls",
+      "People want social energy without posturing, games without grime, food without settling",
+      "The market lacks a repeatable, high-margin format that feels alive every night",
+    ],
+  },
+  {
+    title: "3. The Model",
+    points: [
+      "Pool tables as the anchor, not the afterthought",
+      "Arcade energy to keep the room moving",
+      "Late food that earns its place",
+      "Designed for natural interaction, not forced mingling",
+    ],
+  },
+  {
+    title: "4. Unit Economics",
+    points: [
+      "Phase 1: Pop-up model with venue splits (60/40 door, 20% F&B to venue)",
+      "Phase 2: Flagship with $1.2M build, 70% gross margins at scale",
+      "Target $250K net per location by Year 2",
+    ],
+  },
+  {
+    title: "5. Roadmap",
+    points: [
+      "Q3 2026: Prove model in LA with 3 event formats",
+      "Q1 2027: Expand to 2nd market (Austin or Miami)",
+      "Q3 2027: First permanent location",
+      "2028: 3–5 city rollout",
+    ],
+  },
 ];
 
+// Viral launch strategy
 export const viralLaunchPlan: LaunchPlanPhase[] = [
   {
     title: "Phase 1 — Signal before launch",
     items: [
-      "Build a visual language around chrome, blue felt, wet glass, neon spill, game lights, and dense rooms",
-      "Start posting before the first event so the brand feels alive before the brand is proven",
-      "Use short clips that make people feel like they are seeing the room mid-story, not hearing an announcement",
+      "Build visual language: chrome, blue felt, wet glass, neon spill, game lights",
+      "Start posting 6 weeks pre-launch to establish aesthetic",
+      "Use short clips showing room mid-action, not staged announcements",
+      "Seed 3 core creators who get the vibe",
     ],
   },
-  // ... rest of launch phases
+  {
+    title: "Phase 2 — First 3 events",
+    items: [
+      "Event 1: Friends & family soft open (80% capacity)",
+      "Event 2: Public debut with paid promotion",
+      "Event 3: First tournament format to drive reshare",
+      "Capture 5 signature angles every night",
+    ],
+  },
+  {
+    title: "Phase 3 — Recap & expand",
+    items: [
+      "Edit recaps within 48 hours focusing on crowd energy",
+      "Run lookalike audiences to first attendees",
+      "Add 4th weekly event once demand exceeds capacity",
+      "Start teasing next city once LA hits 80% repeat rate",
+    ],
+  },
 ];
 
+// First 3 event execution details
 export const firstThreeEvents: EventExecutionPlan[] = [
   {
     title: "Event 1 — Controlled chaos",
-    goal:
-      "Prove the room works. The first job is not perfection. It is density, movement, and visible energy.",
+    goal: "Prove the room works. Focus on density, movement, and visible energy.",
     timeline: [
-      "2:00 PM — final floor confirmation, check game placement, confirm food and staff flow",
-      "4:00 PM — lighting, sound, game test, line routing, photo angles, staff zones",
-      "6:00 PM — content team walks the room and marks six must-capture angles",
-      "7:00 PM — staff briefing: entry, table flow, rule tone, cleanup rhythm, crowd touchpoints",
-      "8:00 PM — doors open for early arrivals; room should already look half-alive",
-      "9:00 PM — open pool-heavy flow, side games lit, food visible, no dead corners",
-      "10:30 PM — room push: tournament announcement or challenge-format spike",
-      "12:00 AM — hero hour: highest density, strongest content capture, no operational drift",
-      "1:30 AM — keep floor hot, tighten cleanup, keep late arrivals from feeling secondary",
-      "2:00 AM — controlled close, capture exit reactions, next-drop teaser recorded before teardown",
+      "2:00 PM — Final floor confirmation, game placement check",
+      "4:00 PM — Lighting/sound test, staff zones marked",
+      "6:00 PM — Content team marks must-capture angles",
+      "7:00 PM — Staff briefing on flow and tone",
+      "8:00 PM — Doors open (room should look half-alive)",
+      "9:00 PM — Pool-heavy flow, side games lit",
+      "10:30 PM — Tournament announcement spike",
+      "12:00 AM — Hero hour (peak density, content capture)",
+      "2:00 AM — Controlled close, exit reactions captured",
     ],
   },
-  // ... rest of events
+  {
+    title: "Event 2 — Tighten the room",
+    goal: "Refine operations while increasing capacity by 20%.",
+    timeline: [
+      "Added: Pre-event waitlist management",
+      "Added: Designated photo ambassador role",
+      "Refined: Food pickup flow to reduce bottlenecks",
+      "Refined: Tournament bracket visibility",
+    ],
+  },
+  {
+    title: "Event 3 — Own the room",
+    goal: "Prove repeatability with 30% returning attendees.",
+    timeline: [
+      "Added: Loyalty recognition for returning guests",
+      "Added: Late-night food specials",
+      "Refined: Arcade game rotation timing",
+      "Refined: Staff response to peak density",
+    ],
+  },
 ];
 
+// Parent company integration notes
 export const portfolioUiStructure: PortfolioUiNote[] = [
   {
-    title: "Noaerth portfolio homepage role",
-    body:
-      "POOL WATER should appear there as an experiential entertainment company, but only in a clean strategic context. No public party-language should bleed into the parent-company homepage.",
+    title: "Noaerth portfolio positioning",
+    body: "Position as experiential entertainment, not nightlife. Highlight design system, operational playbook, and expansion logic over party imagery.",
   },
-  // ... rest of notes
+  {
+    title: "Press materials",
+    body: "All press mentions should link design language to repeatable format, not one-off events. Avoid 'pop-up' framing after Year 1.",
+  },
+  {
+    title: "Corporate partnerships",
+    body: "Potential sponsors should align with active social (not passive drinking) positioning. Think athletic brands, game companies, not liquor.",
+  },
 ];

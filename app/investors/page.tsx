@@ -7,6 +7,25 @@ import {
   portfolioUiStructure,
 } from "../../lib/investor-data";
 
+function InvestorCard({
+  title,
+  items,
+}: {
+  title: string;
+  items: string[];
+}) {
+  return (
+    <article className="soft-card rounded-[30px] p-7">
+      <p className="text-2xl font-semibold tracking-[-0.04em] text-white">{title}</p>
+      <ul className="mt-5 list-tight text-sm leading-7 text-white/64">
+        {items.map((item) => (
+          <li key={item}>• {item}</li>
+        ))}
+      </ul>
+    </article>
+  );
+}
+
 export default function InvestorsPage() {
   return (
     <SiteShell accent="investor">

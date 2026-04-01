@@ -265,9 +265,12 @@ export const venuePartnerContent = {
     "Revenue from food/drink upsells",
     "Marketing exposure to our audience",
     "Built-in operations team",
-    "Test-run model before longer commitment"
+    "Test-run model before longer commitment",
+    "Flexible scheduling around your existing events"
   ],
   formTitle: "Tell us about your space",
+  successMessage: "Thank you! We'll review your space and be in touch soon.",
+  errorMessage: "Failed to submit. Please try again or email partners@poolwater.com",
 };
 
 // FAQ Content

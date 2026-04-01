@@ -1,4 +1,4 @@
-import { AdminMetricCard, AdminLatestActivity } from "@/lib/types";
+import type { AdminMetricCard } from "@/lib/types";
 
 async function getAdminData() {
   try {
@@ -22,86 +22,88 @@ async function getAdminData() {
   }
 }
 
+function MetricCard({ metric }: { metric: AdminMetricCard }) {
+  return (
+    <div className="p-4 border rounded-lg bg-white shadow-sm">
+      <div className="text-sm text-gray-500 mb-1">{metric.label}</div>
+      <div className="text-2xl font-bold">
+        {metric.loading ? (
+          <div className="h-8 w-12 bg-gray-200 animate-pulse rounded" />
+        ) : (
+          metric.value.toLocaleString()
+        )}
+      </div>
+    </div>
+  );
+}
+
+function ActivityList({ 
+  title, 
+  items 
+}: { 
+  title: string; 
+  items: Array<{ id: string; email?: string; name?: string; venue_name?: string; title?: string; created_at?: string }> 
+}) {
+  if (!items.length) {
+    return (
+      <div>
+        <h2 className="text-xl font-semibold mb-4">{title}</h2>
+        <p className="text-sm text-gray-500">No recent activity</p>
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      <h2 className="text-xl font-semibold mb-4">{title}</h2>
+      <div className="space-y-2">
+        {items.map((item) => (
+          <div key={item.id} className="p-2 border-b">
+            <div className="font-medium">
+              {item.email || item.name || item.venue_name || item.title}
+            </div>
+            <div className="text-sm text-gray-500">
+              {item.created_at ? new Date(item.created_at).toLocaleString() : "No date"}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default async function AdminPage() {
   const data = await getAdminData();
 
   return (
-    <div className="p-6">
+    <div className="p-6 max-w-6xl mx-auto">
       <h1 className="text-2xl font-bold mb-6">Admin Overview</h1>
       
       {/* Metrics Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         {data.metrics.map((metric) => (
-          <div key={metric.label} className="p-4 border rounded-lg bg-white shadow-sm">
-            <div className="text-sm text-gray-500 mb-1">{metric.label}</div>
-            <div className="text-2xl font-bold">
-              {metric.loading ? (
-                <div className="h-8 w-12 bg-gray-200 animate-pulse rounded" />
-              ) : (
-                metric.value
-              )}
-            </div>
-          </div>
+          <MetricCard key={metric.label} metric={metric} />
         ))}
       </div>
 
       {/* Latest Activity Sections */}
-      <div className="space-y-8">
-        <div>
-          <h2 className="text-xl font-semibold mb-4">Latest Waitlist Entries</h2>
-          <div className="space-y-2">
-            {data.latestWaitlist.map((entry) => (
-              <div key={entry.id} className="p-2 border-b">
-                <div>{entry.email}</div>
-                <div className="text-sm text-gray-500">
-                  {new Date(entry.created_at || "").toLocaleString()}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div>
-          <h2 className="text-xl font-semibold mb-4">Latest Contact Submissions</h2>
-          <div className="space-y-2">
-            {data.latestContacts.map((contact) => (
-              <div key={contact.id} className="p-2 border-b">
-                <div>{contact.name} - {contact.email}</div>
-                <div className="text-sm text-gray-500">
-                  {new Date(contact.created_at || "").toLocaleString()}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div>
-          <h2 className="text-xl font-semibold mb-4">Latest Venue Inquiries</h2>
-          <div className="space-y-2">
-            {data.latestVenueInquiries.map((inquiry) => (
-              <div key={inquiry.id} className="p-2 border-b">
-                <div>{inquiry.venue_name} - {inquiry.contact_name}</div>
-                <div className="text-sm text-gray-500">
-                  {new Date(inquiry.created_at || "").toLocaleString()}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div>
-          <h2 className="text-xl font-semibold mb-4">Latest Events</h2>
-          <div className="space-y-2">
-            {data.latestEvents.map((event) => (
-              <div key={event.id} className="p-2 border-b">
-                <div>{event.title} - {event.city}</div>
-                <div className="text-sm text-gray-500">
-                  {new Date(event.created_at || "").toLocaleString()}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+      <div className="grid gap-8 md:grid-cols-2">
+        <ActivityList 
+          title="Latest Waitlist Entries" 
+          items={data.latestWaitlist} 
+        />
+        <ActivityList 
+          title="Latest Contact Submissions" 
+          items={data.latestContacts} 
+        />
+        <ActivityList 
+          title="Latest Venue Inquiries" 
+          items={data.latestVenueInquiries} 
+        />
+        <ActivityList 
+          title="Latest Events" 
+          items={data.latestEvents} 
+        />
       </div>
     </div>
   );
