@@ -92,3 +92,10 @@ export interface AdminOverviewResponse {
   latestVenueInquiries?: VenueInquiry[];
   latestEvents?: EventRecord[];
 }
+
+export interface AdminLatestActivity {
+  type: 'waitlist' | 'contact' | 'venue' | 'event';
+  id: string;
+  title: string;
+  timestamp: string;
+}

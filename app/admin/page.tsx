@@ -1,4 +1,4 @@
-import { AdminMetricCard } from "@/lib/types";
+import { AdminMetricCard, AdminLatestActivity } from "@/lib/types";
 
 async function getAdminData() {
   try {
@@ -32,10 +32,14 @@ export default async function AdminPage() {
       {/* Metrics Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         {data.metrics.map((metric) => (
-          <div key={metric.label} className="p-4 border rounded-lg">
-            <div className="text-sm text-gray-500">{metric.label}</div>
+          <div key={metric.label} className="p-4 border rounded-lg bg-white shadow-sm">
+            <div className="text-sm text-gray-500 mb-1">{metric.label}</div>
             <div className="text-2xl font-bold">
-              {metric.loading ? "..." : metric.value}
+              {metric.loading ? (
+                <div className="h-8 w-12 bg-gray-200 animate-pulse rounded" />
+              ) : (
+                metric.value
+              )}
             </div>
           </div>
         ))}

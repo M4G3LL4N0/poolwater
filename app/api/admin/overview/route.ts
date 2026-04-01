@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { getSupabaseClient } from "@/lib/supabase";
-import { AdminOverviewResponse } from "@/lib/types";
+import { AdminOverviewResponse, AdminMetricCard } from "@/lib/types";
+import { getMockEvents } from "@/lib/events";
 
 export async function GET(): Promise<NextResponse<AdminOverviewResponse>> {
   try {
@@ -59,7 +60,12 @@ export async function GET(): Promise<NextResponse<AdminOverviewResponse>> {
       .limit(5);
 
     return NextResponse.json({
-      metrics,
+      metrics: [
+        { label: "Waitlist Entries", value: waitlistCount || 0 },
+        { label: "Contact Submissions", value: contactsCount || 0 },
+        { label: "Venue Inquiries", value: venueInquiriesCount || 0 },
+        { label: "Events", value: eventsCount || 0 },
+      ],
       latestWaitlist: latestWaitlist || [],
       latestContacts: latestContacts || [],
       latestVenueInquiries: latestVenueInquiries || [],
