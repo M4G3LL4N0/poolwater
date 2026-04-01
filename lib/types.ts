@@ -103,7 +103,7 @@ export interface PortfolioUiNote {
 // Admin Types
 export interface AdminMetricCard {
   label: string;
-  value: string | number;
+  value: number; // Changed from string | number since all our metrics are numbers
   helperText?: string;
   loading?: boolean;
   error?: string;
@@ -112,22 +112,27 @@ export interface AdminMetricCard {
 export interface AdminOverviewResponse {
   metrics: AdminMetricCard[];
   latestWaitlist?: Array<{
-    id?: string;
+    id: string;
     email: string;
-    created_at?: string;
+    created_at: string;
   }>;
   latestContacts?: Array<{
-    id?: string;
-    name?: string;
+    id: string;
+    name: string;
     email: string;
-    created_at?: string;
+    created_at: string;
   }>;
   latestVenueInquiries?: Array<{
-    id?: string;
-    venue_name?: string;
-    contact_name?: string;
+    id: string;
+    venue_name: string;
+    contact_name: string;
     email: string;
-    created_at?: string;
+    created_at: string;
+  }>;
+  latestEvents?: Array<{
+    id: string;
+    title: string;
+    created_at: string;
   }>;
   source: "supabase" | "fallback";
   error?: string | null;

@@ -1,4 +1,4 @@
-import type { AdminMetricCard } from "@/lib/types";
+import type { AdminMetricCard, AdminOverviewResponse } from "@/lib/types";
 
 async function getAdminData() {
   try {
@@ -73,7 +73,7 @@ function ActivityList({
 }
 
 export default async function AdminPage() {
-  const data = await getAdminData();
+  const data: AdminOverviewResponse = await getAdminData();
 
   return (
     <div className="p-6 max-w-6xl mx-auto">
@@ -81,7 +81,7 @@ export default async function AdminPage() {
       
       {/* Metrics Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-        {data.metrics.map((metric) => (
+        {data.metrics.map((metric: AdminMetricCard) => (
           <MetricCard key={metric.label} metric={metric} />
         ))}
       </div>

@@ -72,13 +72,15 @@ export async function GET(): Promise<NextResponse<AdminOverviewResponse>> {
       .order("created_at", { ascending: false })
       .limit(5);
 
-    return NextResponse.json({
-      metrics: [
-        { label: "Waitlist Entries", value: waitlistCount || 0 },
-        { label: "Contact Submissions", value: contactsCount || 0 },
-        { label: "Venue Inquiries", value: venueInquiriesCount || 0 },
-        { label: "Events", value: eventsCount || 0 },
-      ],
+    const metrics: AdminMetricCard[] = [
+      { label: "Waitlist Entries", value: waitlistCount || 0 },
+      { label: "Contact Submissions", value: contactsCount || 0 },
+      { label: "Venue Inquiries", value: venueInquiriesCount || 0 },
+      { label: "Events", value: eventsCount || 0 },
+    ];
+
+    const response: AdminOverviewResponse = {
+      metrics,
       latestWaitlist: latestWaitlist || [],
       latestContacts: latestContacts || [],
       latestVenueInquiries: latestVenueInquiries || [],
