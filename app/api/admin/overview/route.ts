@@ -20,32 +20,29 @@ export async function GET(): Promise<NextResponse<AdminOverviewResponse>> {
   try {
     const supabase = getSupabaseClient();
     
-    // Get counts
-    const metrics: AdminOverviewResponse["metrics"] = [];
-    
-    // Waitlist count
+    // Get counts and latest entries
     const { count: waitlistCount } = await supabase
       .from("waitlist")
       .select("*", { count: "exact", head: true });
-    metrics.push({ label: "Waitlist Entries", value: waitlistCount || 0 });
 
-    // Contacts count
     const { count: contactsCount } = await supabase
       .from("contacts")
       .select("*", { count: "exact", head: true });
-    metrics.push({ label: "Contact Submissions", value: contactsCount || 0 });
 
-    // Venue inquiries count
     const { count: venueInquiriesCount } = await supabase
       .from("venue_inquiries")
       .select("*", { count: "exact", head: true });
-    metrics.push({ label: "Venue Inquiries", value: venueInquiriesCount || 0 });
 
-    // Events count
     const { count: eventsCount } = await supabase
       .from("events")
       .select("*", { count: "exact", head: true });
-    metrics.push({ label: "Events", value: eventsCount || 0 });
+
+    const metrics: AdminMetricCard[] = [
+      { label: "Waitlist Entries", value: waitlistCount || 0 },
+      { label: "Contact Submissions", value: contactsCount || 0 },
+      { label: "Venue Inquiries", value: venueInquiriesCount || 0 },
+      { label: "Events", value: eventsCount || 0 },
+    ];
 
     // Get latest entries
     const { data: latestWaitlist } = await supabase
