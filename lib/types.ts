@@ -78,3 +78,17 @@ export interface VenueInquiry {
 
 export interface ContactResponse extends ApiSuccess<{ success: boolean }> {}
 export interface VenueInquiryResponse extends ApiSuccess<{ success: boolean }> {}
+
+export interface AdminMetricCard {
+  label: string;
+  value: number;
+  loading?: boolean;
+}
+
+export interface AdminOverviewResponse {
+  metrics: AdminMetricCard[];
+  latestWaitlist?: WaitlistEntry[];
+  latestContacts?: ContactSubmission[];
+  latestVenueInquiries?: VenueInquiry[];
+  latestEvents?: EventRecord[];
+}
