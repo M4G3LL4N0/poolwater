@@ -1,19 +1,22 @@
+export interface ApiSuccess<T> {
+  data: T;
+}
+
+export interface ApiError {
+  error: string;
+}
+
+export type ApiResponse<T> = ApiSuccess<T> | ApiError;
+
+// Database Entities
 export interface WaitlistEntry {
   id: string;
   email: string;
   phone?: string | null;
   source?: string | null;
-  created_at?: string;
+  created_at: string;
+  updated_at?: string;
 }
-
-export interface ApiResponse<T> {
-  data?: T;
-  error?: string;
-}
-
-export type WaitlistResponse = ApiResponse<{ success: boolean }>;
-export type ContactResponse = ApiResponse<{ success: boolean }>;
-export type VenueInquiryResponse = ApiResponse<{ success: boolean }>;
 
 export interface EventRecord {
   id: string;
@@ -26,19 +29,37 @@ export interface EventRecord {
   summary?: string | null;
   status?: string | null;
   is_featured?: boolean;
-  created_at?: string;
+  created_at: string;
+  updated_at?: string;
 }
 
-export interface ApiSuccess<T> {
-  data: T;
+export interface ContactSubmission {
+  id: string;
+  name: string;
+  email: string;
+  message: string;
+  source?: string | null;
+  created_at: string;
 }
 
-export interface ApiError {
-  error: string;
+export interface VenueInquiry {
+  id: string;
+  venue_name: string;
+  contact_name: string;
+  email: string;
+  phone?: string | null;
+  city: string;
+  notes?: string | null;
+  created_at: string;
 }
 
-export type WaitlistResponse = ApiSuccess<{ success: boolean }> | ApiError;
+// API Response Types
+export type WaitlistResponse = ApiResponse<{ success: boolean }>;
+export type ContactResponse = ApiResponse<{ success: boolean }>;
+export type VenueInquiryResponse = ApiResponse<{ success: boolean }>;
+export type EventsResponse = ApiResponse<EventRecord[]>;
 
+// Investor Content Types
 export interface InvestorMetric {
   label: string;
   value: string;
@@ -65,29 +86,7 @@ export interface PortfolioUiNote {
   body: string;
 }
 
-export interface ContactSubmission {
-  id?: string;
-  name: string;
-  email: string;
-  message: string;
-  source?: string | null;
-  created_at?: string;
-}
-
-export interface VenueInquiry {
-  id?: string;
-  venue_name: string;
-  contact_name: string;
-  email: string;
-  phone?: string | null;
-  city: string;
-  notes?: string | null;
-  created_at?: string;
-}
-
-export interface ContactResponse extends ApiSuccess<{ success: boolean }> {}
-export interface VenueInquiryResponse extends ApiSuccess<{ success: boolean }> {}
-
+// Admin Types
 export interface AdminMetricCard {
   label: string;
   value: number;
@@ -96,10 +95,10 @@ export interface AdminMetricCard {
 
 export interface AdminOverviewResponse {
   metrics: AdminMetricCard[];
-  latestWaitlist?: WaitlistEntry[];
-  latestContacts?: ContactSubmission[];
-  latestVenueInquiries?: VenueInquiry[];
-  latestEvents?: EventRecord[];
+  latestWaitlist: WaitlistEntry[];
+  latestContacts: ContactSubmission[];
+  latestVenueInquiries: VenueInquiry[];
+  latestEvents: EventRecord[];
 }
 
 export interface AdminLatestActivity {

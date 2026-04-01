@@ -1,33 +1,49 @@
 import { createClient } from "@supabase/supabase-js";
+import type { SupabaseClient } from "@supabase/supabase-js";
 
-const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-
-export function getSupabaseClient() {
-  if (!url || !anonKey) {
-    console.error("Missing Supabase environment variables.");
-    return null;
-  }
-
-  try {
-    return createClient(url, anonKey, {
-      db: { schema: "poolwater" },
-      auth: {
-        persistSession: false,
-      },
-    });
-  } catch (error) {
-    console.error("Failed to initialize Supabase client:", error);
-    return null;
-  }
+export function hasSupabaseEnv(): boolean {
+  return !!(process.env.NEXT_PUBLIC_SUPABASE_URL && 
+           process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
 }
 
-export async function getWaitlistCount() {
+let _client: SupabaseClient | null = null;
+
+export function getSupabaseClient(): SupabaseClient | null {
+  if (!hasSupabaseEnv()) {
+    return null;
+  }
+
+  if (!_client) {
+    try {
+      _client = createClient(
+        process.env.NEXT_PUBLIC_SUPABASE_URL!,
+        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+        {
+          db: { schema: "poolwater" },
+          auth: { persistSession: false },
+        }
+      );
+    } catch (error) {
+      console.error("Supabase client init failed:", error);
+      return null;
+    }
+  }
+
+  return _client;
+}
+
+export async function getWaitlistCount(): Promise<number> {
   const supabase = getSupabaseClient();
+  if (!supabase) return 0;
+
   const { count, error } = await supabase
     .from("waitlist")
     .select("*", { count: "exact", head: true });
 
-  if (error) throw error;
+  if (error) {
+    console.error("Waitlist count error:", error);
+    return 0;
+  }
+  
   return count || 0;
 }
