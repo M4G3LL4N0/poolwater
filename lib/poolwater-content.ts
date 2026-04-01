@@ -249,6 +249,13 @@ export const contactMessages = {
   formDescription: "We read everything that comes through here.",
   successMessage: "Message sent. We'll get back to you soon.", 
   errorMessage: "Something went wrong. Try again or email direct.",
+  formLabels: {
+    name: "Your name",
+    email: "Email",
+    message: "Your message",
+    submit: "Send Message",
+    sending: "Sending..."
+  }
 };
 
 // Venue Partner Content
