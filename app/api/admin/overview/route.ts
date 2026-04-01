@@ -4,6 +4,19 @@ import { AdminOverviewResponse, AdminMetricCard } from "@/lib/types";
 import { getMockEvents } from "@/lib/events";
 
 export async function GET(): Promise<NextResponse<AdminOverviewResponse>> {
+  const fallbackResponse: AdminOverviewResponse = {
+    metrics: [
+      { label: "Waitlist Entries", value: 0, loading: true },
+      { label: "Contact Submissions", value: 0, loading: true },
+      { label: "Venue Inquiries", value: 0, loading: true },
+      { label: "Events", value: 0, loading: true },
+    ],
+    latestWaitlist: [],
+    latestContacts: [],
+    latestVenueInquiries: [],
+    latestEvents: [],
+    source: "fallback",
+  };
   try {
     const supabase = getSupabaseClient();
     

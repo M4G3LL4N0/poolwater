@@ -103,19 +103,34 @@ export interface PortfolioUiNote {
 // Admin Types
 export interface AdminMetricCard {
   label: string;
-  value: number;
-  delta?: number;
+  value: string | number;
+  helperText?: string;
   loading?: boolean;
   error?: string;
 }
 
 export interface AdminOverviewResponse {
   metrics: AdminMetricCard[];
-  latestWaitlist: WaitlistEntry[];
-  latestContacts: ContactSubmission[];
-  latestVenueInquiries: VenueInquiry[];
-  latestEvents: EventRecord[];
-  timestamp: string;
+  latestWaitlist?: Array<{
+    id?: string;
+    email: string;
+    created_at?: string;
+  }>;
+  latestContacts?: Array<{
+    id?: string;
+    name?: string;
+    email: string;
+    created_at?: string;
+  }>;
+  latestVenueInquiries?: Array<{
+    id?: string;
+    venue_name?: string;
+    contact_name?: string;
+    email: string;
+    created_at?: string;
+  }>;
+  source: "supabase" | "fallback";
+  error?: string | null;
 }
 
 export type AdminActivityType = 'waitlist' | 'contact' | 'venue' | 'event';
