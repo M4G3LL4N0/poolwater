@@ -82,7 +82,8 @@ function ActivityList({
 }
 
 export default async function AdminPage() {
-  const data: AdminOverviewResponse = await getAdminData();
+  const rawData = await getAdminData();
+  const data = rawData as AdminOverviewResponse;
 
   return (
     <div className="p-6 max-w-6xl mx-auto">
