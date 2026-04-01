@@ -37,12 +37,21 @@ function MetricCard({ metric }: { metric: AdminMetricCard }) {
   );
 }
 
-function ActivityList({ 
-  title, 
-  items 
-}: { 
-  title: string; 
-  items: Array<{ id: string; email?: string; name?: string; venue_name?: string; title?: string; created_at?: string }> 
+interface ActivityItem {
+  id: string;
+  email?: string;
+  name?: string;
+  venue_name?: string;
+  title?: string;
+  created_at?: string;
+}
+
+function ActivityList({
+  title,
+  items
+}: {
+  title: string;
+  items: ActivityItem[]
 }) {
   if (!items.length) {
     return (

@@ -85,10 +85,13 @@ export async function GET(): Promise<NextResponse<AdminOverviewResponse>> {
       latestContacts: latestContacts || [],
       latestVenueInquiries: latestVenueInquiries || [],
       latestEvents: latestEvents || [],
-    });
+      source: "supabase"
+    };
+
+    return NextResponse.json(response);
   } catch (error) {
     // Fallback to local data if Supabase is unavailable
-    return NextResponse.json({
+    return NextResponse.json<AdminOverviewResponse>({
       metrics: [
         { label: "Waitlist Entries", value: 0, loading: true },
         { label: "Contact Submissions", value: 0, loading: true },
