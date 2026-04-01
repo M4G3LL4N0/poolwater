@@ -7,6 +7,7 @@ type ActivityItem = {
   name?: string;
   venue_name?: string;
   contact_name?: string;
+  title?: string;
   created_at?: string;
 };
 
@@ -51,6 +52,7 @@ function ActivityList({
               item.name ||
               item.venue_name ||
               item.contact_name ||
+              item.title ||
               "Entry"}
           </div>
         ))}
@@ -61,7 +63,16 @@ function ActivityList({
 
 async function getData(): Promise<AdminOverviewResponse> {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL || ""}/api/admin/overview`, {
+    const baseUrl =
+      process.env.NEXT_PUBLIC_SITE_URL ||
+      process.env.VERCEL_PROJECT_PRODUCTION_URL ||
+      "";
+
+    const url = baseUrl
+      ? `${baseUrl.startsWith("http") ? baseUrl : `https://${baseUrl}`}/api/admin/overview`
+      : "http://localhost:3000/api/admin/overview";
+
+    const res = await fetch(url, {
       cache: "no-store",
     });
 
@@ -69,14 +80,16 @@ async function getData(): Promise<AdminOverviewResponse> {
       throw new Error("Failed fetch");
     }
 
-    return res.json();
+    return (await res.json()) as AdminOverviewResponse;
   } catch {
     return {
       metrics: [],
       latestWaitlist: [],
       latestContacts: [],
       latestVenueInquiries: [],
+      latestEvents: [],
       source: "fallback",
+      error: null,
     };
   }
 }
@@ -87,19 +100,17 @@ export default async function AdminPage() {
   return (
     <SiteShell>
       <main className="container-shell py-12">
-        <h1 className="text-3xl font-semibold text-white mb-8">
+        <h1 className="mb-8 text-3xl font-semibold text-white">
           Admin Overview
         </h1>
 
-        {/* Metrics */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+        <div className="mb-10 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
           {(data.metrics || []).map((metric) => (
             <MetricCard key={metric.label} metric={metric} />
           ))}
         </div>
 
-        {/* Activity */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4">
           <ActivityList
             title="Latest Waitlist Entries"
             items={data.latestWaitlist ?? []}
@@ -111,6 +122,10 @@ export default async function AdminPage() {
           <ActivityList
             title="Latest Venue Inquiries"
             items={data.latestVenueInquiries ?? []}
+          />
+          <ActivityList
+            title="Latest Events"
+            items={data.latestEvents ?? []}
           />
         </div>
       </main>
