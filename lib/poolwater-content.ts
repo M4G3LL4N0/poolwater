@@ -1,3 +1,4 @@
+// Navigation
 export const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
@@ -7,6 +8,7 @@ export const navLinks = [
   { href: "/join", label: "Join" },
 ];
 
+// Home Page Content
 export const heroPills = [
   "Pool tables everywhere",
   "Arcade glow",
@@ -63,6 +65,7 @@ export const differenceCards = [
   },
 ];
 
+// About Page Content
 export const aboutBlocks = [
   {
     title: "Why it started",
@@ -81,6 +84,7 @@ export const aboutBlocks = [
   },
 ];
 
+// Current Page Content
 export const currentPrinciples = [
   {
     title: "Movement over posing",
@@ -114,6 +118,7 @@ export const currentPrinciples = [
   },
 ];
 
+// Events Page Content
 export const eventsHighlights = [
   "Walk in and immediately have something to do",
   "Bounce between pool, arcade games, foosball, and air hockey",
@@ -182,6 +187,7 @@ export const eventCards = [
   },
 ];
 
+// Gallery Page Content
 export const galleryMoodCards = [
   {
     title: "Blue felt / chrome rails / neon spill",
@@ -215,6 +221,7 @@ export const galleryMoodCards = [
   },
 ];
 
+// Join Page Content
 export const joinReasons = [
   "Early access to drops",
   "First look at event dates", 
@@ -224,6 +231,7 @@ export const joinReasons = [
   "Founder updates and insights",
 ];
 
+// Waitlist Content
 export const waitlistMessages = {
   headline: "Be early, not late.",
   subtitle: "Get first access to drops, dates, and private updates before they hit the main feed.",
@@ -233,6 +241,7 @@ export const waitlistMessages = {
   errorMessage: "Something went wrong. Please try again.",
 };
 
+// Contact Content
 export const contactMessages = {
   headline: "Hit us up.",
   subtitle: "Got questions? Want to collaborate? Have an idea for the room? Let us know.",
@@ -242,6 +251,7 @@ export const contactMessages = {
   errorMessage: "Something went wrong. Try again or email direct.",
 };
 
+// Venue Partner Content
 export const venuePartnerContent = {
   headline: "Partner with POOL WATER.",
   subtitle: "Got an underused space? Let's activate it.",  
@@ -260,3 +270,34 @@ export const venuePartnerContent = {
   formTitle: "Tell us about your space",
 };
 
+// FAQ Content
+export const faqContent = [
+  {
+    question: "What is POOL WATER?",
+    answer: "POOL WATER is a late-night social playground built around pool tables, arcade games, movement, food, and rooms that actually feel alive. It's designed to make going out feel participatory again."
+  },
+  {
+    question: "What kind of night is it?",
+    answer: "It's a high-energy social experience where you can play pool, arcade games, and air hockey while enjoying real late-night food. The room is designed to keep you moving and engaged all night."
+  },
+  {
+    question: "Do I need a group to come?",
+    answer: "Not at all! The room is designed to make it easy to meet people and jump into games, whether you come solo or with friends."
+  },
+  {
+    question: "What should I expect?",
+    answer: "Expect a room full of pool tables, arcade games, and people having fun. The energy is high but controlled, with great music and food to keep the night going."
+  },
+  {
+    question: "How do I get event access?",
+    answer: "Join our waitlist to get first access to event drops and private updates before they hit the main feed."
+  },
+  {
+    question: "Is food available?",
+    answer: "Yes! We serve real late-night food like smash burgers and fries - not just bar snacks. The food is designed to keep you in the building longer."
+  },
+  {
+    question: "Is there competition/tournament play?",
+    answer: "Yes! We host structured pool tournaments and competitive arcade game nights alongside our open play events."
+  }
+];
