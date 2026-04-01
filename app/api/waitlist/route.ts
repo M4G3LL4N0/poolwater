@@ -1,73 +1,105 @@
 import { NextResponse } from "next/server";
-import { getSupabaseClient, getWaitlistCount, safeDbQuery } from "@/lib/supabase";
-import type { WaitlistEntry, WaitlistResponse } from "@/lib/types";
+import { getSupabaseClient } from "@/lib/supabase";
 
-const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+function isValidEmail(email: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
 
-export async function POST(req: Request): Promise<NextResponse<WaitlistResponse>> {
+export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const email = (typeof body.email === "string" ? body.email.trim().toLowerCase() : "") as Email;
-    const phone = typeof body.phone === "string" ? body.phone.trim().slice(0, 20) : null;
-    const source = typeof body.source === "string" ? body.source.trim().slice(0, 50) : "website";
 
-    if (!EMAIL_REGEX.test(email)) {
+    const email =
+      typeof body?.email === "string"
+        ? body.email.trim().toLowerCase()
+        : "";
+
+    const phone =
+      typeof body?.phone === "string"
+        ? body.phone.trim().slice(0, 20)
+        : null;
+
+    const source =
+      typeof body?.source === "string"
+        ? body.source.trim().slice(0, 50)
+        : "website";
+
+    if (!email || !isValidEmail(email)) {
       return NextResponse.json(
-        { error: "Valid email is required" },
+        { error: "A valid email is required." },
         { status: 400 }
       );
     }
 
-    const result = await safeDbQuery(async (supabase) => {
-      const { error } = await supabase
-        .from("waitlist")
-        .upsert(
-          {
-            email,
-            phone,
-            source,
-            updated_at: new Date().toISOString(),
-          },
-          { onConflict: "email" }
-        );
+    const supabase = getSupabaseClient();
 
-      if (error) throw error;
-      
-      const { count } = await supabase
-        .from("waitlist")
-        .select("*", { count: "exact", head: true });
-
-      return { success: true, count: count || 0 };
-    }, { success: false });
-
-    if (!result.success) {
+    if (!supabase) {
       return NextResponse.json(
-        { error: "Service temporarily unavailable" }, 
-        { status: 503 }
+        { error: "Database not configured" },
+        { status: 500 }
       );
     }
 
-    return NextResponse.json({ 
-      data: { 
-        success: true,
-        count: result.count
-      } 
-    });
-  } catch (error) {
-    console.error("Waitlist submission error:", error);
+    const { error } = await supabase.from("waitlist").upsert(
+      {
+        email,
+        phone,
+        source,
+      },
+      {
+        onConflict: "email",
+        ignoreDuplicates: false,
+      }
+    );
+
+    if (error) {
+      return NextResponse.json(
+        { error: error.message },
+        { status: 500 }
+      );
+    }
+
+    return NextResponse.json({ success: true });
+  } catch {
     return NextResponse.json(
-      { error: "Failed to process request" },
-      { status: 500 }
+      { error: "Invalid request" },
+      { status: 400 }
     );
   }
 }
 
-export async function GET(): Promise<NextResponse<{ count: number }>> {
+export async function GET() {
   try {
-    const count = await getWaitlistCount();
-    return NextResponse.json({ count });
-  } catch (error) {
-    console.error("Waitlist count error:", error);
-    return NextResponse.json({ count: 0 }, { status: 200 });
+    const supabase = getSupabaseClient();
+
+    if (!supabase) {
+      return NextResponse.json({
+        count: 0,
+        source: "fallback",
+        error: "Database not configured",
+      });
+    }
+
+    const { count, error } = await supabase
+      .from("waitlist")
+      .select("*", { count: "exact", head: true });
+
+    if (error) {
+      return NextResponse.json(
+        { error: error.message, count: 0 },
+        { status: 500 }
+      );
+    }
+
+    return NextResponse.json({
+      count: count ?? 0,
+      source: "supabase",
+      error: null,
+    });
+  } catch {
+    return NextResponse.json(
+      { count: 0, source: "fallback", error: "Unable to fetch waitlist count" },
+      { status: 500 }
+    );
   }
 }

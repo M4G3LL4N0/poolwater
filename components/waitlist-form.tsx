@@ -1,13 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
-import { waitlistMessages } from "@/lib/poolwater-content";
 
-type FormStatus = "idle" | "loading" | "success" | "error";
-
-const isValidEmail = (email: string): boolean => 
-  /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+  }
+}
 
 export default function WaitlistForm({
   source = "join-page",
@@ -16,128 +15,94 @@ export default function WaitlistForm({
 }) {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [status, setStatus] = useState<FormStatus>("idle");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (status === "loading" || !isValidEmail(email)) return;
-
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
     setStatus("loading");
     setMessage("");
 
     try {
       const response = await fetch("/api/waitlist", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ 
-          email: email.trim().toLowerCase(),
-          phone: phone.trim(),
-          source 
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          phone,
+          source,
         }),
       });
 
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(
-          data?.error || 
-          waitlistMessages.errorMessage ||
-          "Failed to submit. Please try again."
-        );
+        throw new Error(data?.error || "Something went wrong.");
       }
 
-      setStatus("success");
-      setMessage(
-        waitlistMessages.successMessage ||
-        "You're on the waiting list!"
-      );
-      setEmail("");
-      setPhone("");
-
-      // Analytics event if available
-      if (window.gtag) {
+      if (typeof window !== "undefined" && typeof window.gtag === "function") {
         window.gtag("event", "waitlist_signup", {
           event_category: "conversion",
           event_label: source,
+          value: 1,
         });
       }
+
+      setStatus("success");
+      setMessage("You’re on the list.");
+      setEmail("");
+      setPhone("");
     } catch (error) {
       setStatus("error");
-      setMessage(
-        error instanceof Error 
-          ? error.message 
-          : waitlistMessages.errorMessage ||
-            "Failed to submit. Please try again."
-      );
+      setMessage(error instanceof Error ? error.message : "Something went wrong.");
     }
-  };
+  }
 
   return (
-    <form 
-      onSubmit={handleSubmit}
-      className="mt-8 grid gap-4"
-      data-testid="waitlist-form"
-      data-analytics-source={source}
-    >
-      <div>
-        <input
-          type="email"
-          inputMode="email"
-          autoComplete="email"
-          required
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Email"
-          className="w-full rounded-[22px] border border-white/10 bg-black/20 px-5 py-4 text-sm text-white outline-none placeholder:text-white/35 transition focus:border-cyan-300/30"
-          data-cta="waitlist-email"
-          aria-invalid={status === "error"} 
-        />
-        {status === "error" && !isValidEmail(email) && (
-          <p className="mt-1 text-xs text-rose-300">
-            Please enter a valid email
-          </p>
-        )}
-      </div>
+    <form onSubmit={handleSubmit} className="mt-8 grid gap-4">
+      <input
+        type="email"
+        inputMode="email"
+        autoComplete="email"
+        required
+        value={email}
+        onChange={(event) => setEmail(event.target.value)}
+        placeholder="Email"
+        className="rounded-[22px] border border-white/10 bg-black/20 px-5 py-4 text-sm text-white outline-none placeholder:text-white/35"
+      />
 
       <input
         type="tel"
         inputMode="tel"
         autoComplete="tel"
         value={phone}
-        onChange={(e) => setPhone(e.target.value)}
+        onChange={(event) => setPhone(event.target.value)}
         placeholder="Phone (optional)"
-        className="rounded-[22px] border border-white/10 bg-black/20 px-5 py-4 text-sm text-white outline-none placeholder:text-white/35 transition focus:border-cyan-300/30"
-        data-cta="waitlist-phone"
+        className="rounded-[22px] border border-white/10 bg-black/20 px-5 py-4 text-sm text-white outline-none placeholder:text-white/35"
       />
 
       <button
         type="submit"
         disabled={status === "loading"}
+        data-cta="join-waitlist-submit"
         className="primary-btn w-full"
-        data-cta="waitlist-submit"
-        aria-busy={status === "loading"}
       >
-        {status === "loading" ? (
-          <span className="inline-flex items-center gap-2">
-            <span className="inline-block h-3 w-3 animate-spin rounded-full border-2 border-solid border-current border-r-transparent" />
-            Joining...
-          </span>
-        ) : (
-          "Join First Access"
-        )}
+        {status === "loading" ? "Submitting..." : "Request first access"}
       </button>
 
-      {message && (
+      {message ? (
         <p
-          className={`text-sm ${
-            status === "success" ? "text-emerald-300" : "text-rose-300"
-          }`}
-          aria-live="polite"
+          className={
+            status === "success"
+              ? "text-sm text-emerald-300"
+              : "text-sm text-rose-300"
+          }
         >
           {message}
         </p>
-      )}
+      ) : null}
     </form>
   );
 }

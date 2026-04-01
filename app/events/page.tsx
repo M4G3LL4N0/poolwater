@@ -2,8 +2,16 @@ import Link from "next/link";
 import SiteShell from "../../components/site-shell";
 import { eventFormats, eventsHighlights } from "../../lib/poolwater-content";
 import { getMockEvents } from "../../lib/events";
+import { EventRecord } from "../../lib/types";
+
+function getEvents(): EventRecord[] {
+  return getMockEvents();
+}
 
 export default function EventsPage() {
+  const events = getEvents();
+  const featuredEvent = events.find((event) => event.is_featured) ?? events[0] ?? null;
+
   return (
     <SiteShell>
       <main>
@@ -19,7 +27,51 @@ export default function EventsPage() {
           </div>
         </section>
 
-        <section className="container-shell py-20 md:py-24">
+        {featuredEvent ? (
+          <section className="container-shell section-block">
+            <div className="glass-panel rounded-[36px] p-8 md:p-10">
+              <p className="section-kicker">Featured Drop</p>
+              <div className="mt-4 grid gap-6 lg:grid-cols-[1fr_0.9fr] lg:items-end">
+                <div>
+                  <h2 className="text-3xl font-semibold tracking-[-0.05em] text-white md:text-5xl">
+                    {featuredEvent.title}
+                  </h2>
+                  <p className="mt-4 text-sm uppercase tracking-[0.18em] text-white/42">
+                    {featuredEvent.city} • {featuredEvent.time_label ?? "Late night"}
+                  </p>
+                  <p className="mt-5 max-w-2xl text-sm leading-7 text-white/64 md:text-base">
+                    {featuredEvent.summary ?? "A featured Pool Water event."}
+                  </p>
+                </div>
+
+                <div className="soft-card rounded-[28px] p-6">
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.2em] text-white/40">Date</p>
+                      <p className="mt-2 text-lg font-semibold text-white">
+                        {featuredEvent.date_label ?? "TBA"}
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.2em] text-white/40">Venue</p>
+                      <p className="mt-2 text-lg font-semibold text-white">
+                        {featuredEvent.venue ?? "Private release first"}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="mt-6">
+                    <Link href="/join" className="primary-btn w-full">
+                      Get first access
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        ) : null}
+
+        <section className="container-shell section-block">
           <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
             <div>
               <p className="section-kicker">What to expect</p>
@@ -37,16 +89,16 @@ export default function EventsPage() {
         </section>
 
         <section className="border-y border-white/10 bg-white/[0.025]">
-          <div className="container-shell py-20 md:py-24">
+          <div className="container-shell section-block">
             <p className="section-kicker">Upcoming drops</p>
             <h2 className="section-title mt-4 max-w-3xl">Structured event cards, ready for real dates.</h2>
 
             <div className="mt-12 grid gap-6 lg:grid-cols-3">
-              {getMockEvents().map((event) => (
+              {events.map((event) => (
                 <article key={event.slug} className="overflow-hidden rounded-[30px] soft-card">
                   <div className="h-44 border-b border-white/10 bg-[radial-gradient(circle_at_20%_20%,rgba(89,215,255,0.25),transparent_25%),radial-gradient(circle_at_80%_25%,rgba(124,109,255,0.22),transparent_28%),linear-gradient(135deg,#0b1624,#03070d)] p-6">
                     <span className="rounded-full border border-white/15 bg-black/20 px-4 py-2 text-xs uppercase tracking-[0.22em] text-white/80">
-                      {event.status}
+                      {event.status ?? "Coming soon"}
                     </span>
                   </div>
 
@@ -57,29 +109,22 @@ export default function EventsPage() {
                           {event.title}
                         </h3>
                         <p className="mt-2 text-sm uppercase tracking-[0.18em] text-white/42">
-                          {event.city} • {event.timeLabel}
+                          {event.city} • {event.time_label ?? "Late night"}
                         </p>
                       </div>
-                      <p className="text-sm text-white/58">{event.dateLabel}</p>
+                      <p className="text-sm text-white/58">{event.date_label ?? "TBA"}</p>
                     </div>
 
-                    <p className="mt-5 text-sm leading-7 text-white/62">{event.summary}</p>
-
-                    <div className="mt-6 flex flex-wrap gap-2">
-                      {event.features.map((feature) => (
-                        <span
-                          key={feature}
-                          className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-xs uppercase tracking-[0.16em] text-white/72"
-                        >
-                          {feature}
-                        </span>
-                      ))}
-                    </div>
+                    <p className="mt-5 text-sm leading-7 text-white/62">
+                      {event.summary ?? "Pool Water event"}
+                    </p>
 
                     <div className="mt-8 flex items-center justify-between gap-4 border-t border-white/10 pt-5">
-                      <p className="text-sm text-white/52">{event.venue}</p>
+                      <p className="text-sm text-white/52">
+                        {event.venue ?? "Private release first"}
+                      </p>
                       <Link href="/join" className="secondary-btn">
-                        {event.cta}
+                        Get notified
                       </Link>
                     </div>
                   </div>
@@ -89,7 +134,7 @@ export default function EventsPage() {
           </div>
         </section>
 
-        <section className="container-shell py-20 md:py-24">
+        <section className="container-shell section-block">
           <p className="section-kicker">Formats</p>
           <h2 className="section-title mt-4 max-w-3xl">Different nights, same pull.</h2>
 
