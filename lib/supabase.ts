@@ -5,15 +5,21 @@ const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
 export function getSupabaseClient() {
   if (!url || !anonKey) {
-    throw new Error("Missing Supabase environment variables.");
+    console.error("Missing Supabase environment variables.");
+    return null;
   }
 
-  return createClient(url, anonKey, {
-    db: { schema: "poolwater" },
-    auth: {
-      persistSession: false,
-    },
-  });
+  try {
+    return createClient(url, anonKey, {
+      db: { schema: "poolwater" },
+      auth: {
+        persistSession: false,
+      },
+    });
+  } catch (error) {
+    console.error("Failed to initialize Supabase client:", error);
+    return null;
+  }
 }
 
 export async function getWaitlistCount() {

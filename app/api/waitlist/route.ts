@@ -14,6 +14,12 @@ export async function POST(req: Request): Promise<NextResponse<WaitlistResponse>
     }
 
     const supabase = getSupabaseClient();
+    if (!supabase) {
+      return NextResponse.json(
+        { error: "Service temporarily unavailable" },
+        { status: 503 }
+      );
+    }
 
     const { error } = await supabase.from("waitlist").upsert(
       {
@@ -28,13 +34,18 @@ export async function POST(req: Request): Promise<NextResponse<WaitlistResponse>
     );
 
     if (error) {
-      return NextResponse.json({ error: error.message }, { status: 500 });
+      console.error("Supabase error:", error);
+      return NextResponse.json(
+        { error: "Failed to process request" },
+        { status: 500 }
+      );
     }
 
-    return NextResponse.json({ success: true });
+    return NextResponse.json({ data: { success: true } });
   } catch (error) {
+    console.error("Waitlist submission error:", error);
     return NextResponse.json(
-      { error: "Unable to submit waitlist request." },
+      { error: "Unable to process request" },
       { status: 500 }
     );
   }

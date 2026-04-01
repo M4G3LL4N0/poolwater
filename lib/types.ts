@@ -6,6 +6,15 @@ export interface WaitlistEntry {
   created_at?: string;
 }
 
+export interface ApiResponse<T> {
+  data?: T;
+  error?: string;
+}
+
+export type WaitlistResponse = ApiResponse<{ success: boolean }>;
+export type ContactResponse = ApiResponse<{ success: boolean }>;
+export type VenueInquiryResponse = ApiResponse<{ success: boolean }>;
+
 export interface EventRecord {
   id: string;
   slug: string;
