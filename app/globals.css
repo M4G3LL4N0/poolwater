@@ -95,11 +95,27 @@ select {
 }
 
 .container-shell {
+  max-width: 1100px;
   margin-left: auto;
   margin-right: auto;
-  max-width: 84rem;
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.section-block {
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+
+.stack-xl { gap: 48px; display: flex; flex-direction: column; }
+.stack-lg { gap: 32px; display: flex; flex-direction: column; }
+.stack-md { gap: 24px; display: flex; flex-direction: column; }
+
+@media (max-width: 768px) {
+  .section-block {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
 }
 
 .glass-panel {
@@ -291,20 +307,32 @@ select {
 
 .pool-showcase-grid {
   display: grid;
-  gap: 1.1rem;
+  gap: 32px;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+@media (min-width: 768px) {
+  .pool-showcase-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .pool-showcase-card {
   position: relative;
   overflow: hidden;
-  min-height: 320px;
-  border-radius: 30px;
+  min-height: 360px;
+  border-radius: 28px;
   border: 1px solid rgba(255,255,255,0.11);
   background:
     linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
   box-shadow:
     0 1px 0 rgba(255,255,255,0.06) inset,
     0 18px 54px rgba(0,0,0,0.24);
+  transition: transform 0.2s ease;
+}
+
+.pool-showcase-card:hover {
+  transform: translateY(-4px);
 }
 
 .pool-showcase-art {
@@ -314,7 +342,7 @@ select {
 
 .pool-showcase-overlay {
   position: absolute;
-  inset: auto 14px 14px 14px;
+  inset: auto 20px 20px 20px;
   border-radius: 24px;
   border: 1px solid rgba(255,255,255,0.12);
   background:
@@ -323,7 +351,7 @@ select {
     0 1px 0 rgba(255,255,255,0.05) inset,
     0 16px 40px rgba(0,0,0,0.28);
   backdrop-filter: blur(18px);
-  padding: 1.2rem;
+  padding: 28px;
 }
 
 .tile-chip {

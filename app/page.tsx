@@ -108,7 +108,7 @@ export default function HomePage() {
         </section>
 
         <section className="container-shell section-block">
-          <div className="home-frame p-6 md:p-8">
+          <div className="home-frame p-8">
             <div className="section-intro">
               <p className="section-kicker">What it feels like</p>
               <h2 className="section-title mt-4">
@@ -192,7 +192,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="container-shell pb-20 md:pb-24">
+        <section className="container-shell section-block">
           <div className="cta-panel">
             <p className="section-kicker">The next move</p>
             <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-[-0.06em] text-white md:text-5xl">
