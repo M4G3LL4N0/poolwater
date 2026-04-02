@@ -57,31 +57,39 @@ export default function SiteShell({
               </Link>
             </nav>
 
-            <button
-              type="button"
-              aria-label="Toggle menu"
-              aria-expanded={menuOpen}
-              onClick={() => setMenuOpen((value) => !value)}
-              className="site-menu-button"
-            >
-              <span className="relative block h-4 w-5">
-                <span
-                  className={`absolute left-0 top-0 h-[2px] w-5 rounded bg-white transition ${
-                    menuOpen ? "translate-y-[7px] rotate-45" : ""
-                  }`}
-                />
-                <span
-                  className={`absolute left-0 top-[7px] h-[2px] w-5 rounded bg-white transition ${
-                    menuOpen ? "opacity-0" : "opacity-100"
-                  }`}
-                />
-                <span
-                  className={`absolute left-0 top-[14px] h-[2px] w-5 rounded bg-white transition ${
-                    menuOpen ? "-translate-y-[7px] -rotate-45" : ""
-                  }`}
-                />
-              </span>
-            </button>
+            <div className="flex items-center gap-2">
+              <Link
+                href="/join"
+                className="hidden rounded-full bg-white/[0.08] px-4 py-2 text-sm font-medium text-white transition hover:bg-white/[0.12] sm:block"
+              >
+                Join Waitlist
+              </Link>
+              <button
+                type="button"
+                aria-label="Toggle menu"
+                aria-expanded={menuOpen}
+                onClick={() => setMenuOpen((value) => !value)}
+                className="site-menu-button"
+              >
+                <span className="relative block h-4 w-5">
+                  <span
+                    className={`absolute left-0 top-0 h-[2px] w-5 rounded bg-white transition ${
+                      menuOpen ? "translate-y-[7px] rotate-45" : ""
+                    }`}
+                  />
+                  <span
+                    className={`absolute left-0 top-[7px] h-[2px] w-5 rounded bg-white transition ${
+                      menuOpen ? "opacity-0" : "opacity-100"
+                    }`}
+                  />
+                  <span
+                    className={`absolute left-0 top-[14px] h-[2px] w-5 rounded bg-white transition ${
+                      menuOpen ? "-translate-y-[7px] -rotate-45" : ""
+                    }`}
+                  />
+                </span>
+              </button>
+            </div>
           </div>
 
           {menuOpen ? (
