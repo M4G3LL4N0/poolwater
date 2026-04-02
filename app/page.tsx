@@ -42,7 +42,7 @@ export default function HomePage() {
   return (
     <SiteShell>
       <main>
-        <section className="page-hero hero-gradient">
+        <section className="page-hero hero-gradient py-20">
           <div className="page-hero-inner">
             <div className="grid items-center gap-10 lg:grid-cols-[1.08fr_0.92fr]">
               <div>
@@ -107,7 +107,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="container-shell section-block">
+        <section className="section container-shell py-20">
           <div className="stack-lg">
             <div className="section-intro">
               <p className="section-kicker">What it feels like</p>
@@ -121,9 +121,9 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="grid grid-gap md:grid-cols-2">
+            <div className="grid gap-6 md:grid-cols-2">
               {showcaseTiles.map((tile) => (
-                <article key={tile.title} className="card min-h-[320px]">
+                <article key={tile.title} className="card min-h-[320px] relative overflow-hidden">
                   <div className={`absolute inset-0 ${tile.artClass}`} />
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/70" />
                   <div className="absolute left-6 top-6">
@@ -140,7 +140,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="container-shell section-block">
+        <section className="section container-shell py-20">
           <div className="section-intro">
             <p className="section-kicker">Built for the room</p>
             <h2 className="section-title mt-4">
@@ -148,7 +148,7 @@ export default function HomePage() {
             </h2>
           </div>
 
-          <div className="feature-grid mt-12">
+          <div className="feature-grid mt-12 gap-6">
             {experienceCards.map((card) => (
               <article key={card.title} className="feature-card">
                 <p className="feature-card-title">{card.title}</p>
@@ -158,7 +158,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="container-shell section-block">
+        <section className="section container-shell py-20">
           <div className="why-grid">
             <div className="why-lead-card">
               <p className="section-kicker">Why it lands</p>
@@ -192,7 +192,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="container-shell section-block">
+        <section className="section container-shell py-20">
           <div className="cta-panel">
             <p className="section-kicker">The next move</p>
             <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-[-0.06em] text-white md:text-5xl">
