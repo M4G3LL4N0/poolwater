@@ -121,18 +121,18 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="grid gap-8 md:grid-cols-2">
+            <div className="grid grid-gap md:grid-cols-2">
               {showcaseTiles.map((tile) => (
-                <article key={tile.title} className="pool-showcase-card min-h-[360px]">
-                  <div className={`pool-showcase-art ${tile.artClass}`} />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(2,5,10,0.16)_45%,rgba(2,5,10,0.3)_100%)]" />
+                <article key={tile.title} className="card min-h-[320px]">
+                  <div className={`absolute inset-0 ${tile.artClass}`} />
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/70" />
                   <div className="absolute left-6 top-6">
                     <span className="tile-chip">{tile.chip}</span>
                   </div>
-                  <div className="pool-showcase-overlay">
+                  <div className="absolute bottom-6 left-6 right-6">
                     <p className="tile-kicker">Pool Water</p>
-                    <h3 className="tile-title mt-4">{tile.title}</h3>
-                    <p className="mt-4 text-sm leading-7 text-white/66">{tile.body}</p>
+                    <h3 className="tile-title mt-2">{tile.title}</h3>
+                    <p className="mt-2 text-sm leading-7 text-white/66">{tile.body}</p>
                   </div>
                 </article>
               ))}

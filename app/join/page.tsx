@@ -19,7 +19,7 @@ export default function JoinPage() {
         </section>
 
         <section className="container-shell section-block">
-          <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
+          <div className="grid grid-gap lg:grid-cols-[0.95fr_1.05fr]">
             <div className="glass-panel rounded-[36px] p-8 md:p-10">
               <p className="section-kicker">What you get</p>
               <ul className="mt-6 list-tight text-sm leading-7 text-white/66">

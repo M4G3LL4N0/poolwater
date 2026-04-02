@@ -20,7 +20,7 @@ export default function AboutPage() {
         </section>
 
         <section className="container-shell section-block">
-          <div className="grid gap-4 sm:gap-6 lg:grid-cols-3">
+          <div className="grid grid-gap lg:grid-cols-3">
             {aboutBlocks.map((block) => (
               <article key={block.title} className="soft-card rounded-[30px] p-7">
                 <p className="text-2xl font-semibold tracking-[-0.04em] text-white">{block.title}</p>
