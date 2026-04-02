@@ -18,7 +18,7 @@ export default function JoinPage() {
           </div>
         </section>
 
-        <section className="container-shell py-20 md:py-24">
+        <section className="container-shell section-block">
           <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
             <div className="glass-panel rounded-[36px] p-8 md:p-10">
               <p className="section-kicker">What you get</p>

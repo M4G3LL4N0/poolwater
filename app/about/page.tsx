@@ -19,7 +19,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="container-shell py-20 md:py-24">
+        <section className="container-shell section-block">
           <div className="grid gap-4 sm:gap-6 lg:grid-cols-3">
             {aboutBlocks.map((block) => (
               <article key={block.title} className="soft-card rounded-[30px] p-7">
@@ -31,7 +31,7 @@ export default function AboutPage() {
         </section>
 
         <section className="border-y border-white/10 bg-white/[0.025]">
-          <div className="container-shell py-20 md:py-24">
+          <div className="container-shell section-block">
             <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
               <div>
                 <p className="section-kicker">The idea</p>
@@ -56,7 +56,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="container-shell py-20 md:py-24">
+        <section className="container-shell section-block">
           <div className="glass-panel rounded-[36px] p-8 md:p-12">
             <p className="section-kicker">Keep going</p>
             <h2 className="mt-4 text-3xl font-semibold tracking-[-0.05em] text-white md:text-5xl">

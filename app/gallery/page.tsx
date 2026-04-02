@@ -18,8 +18,8 @@ export default function GalleryPage() {
           </div>
         </section>
 
-        <section className="container-shell py-20 md:py-24">
-          <div className="grid gap-4 sm:gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <section className="container-shell section-block">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {galleryMoodCards.map((card, index) => (
               <article key={card.title} className="overflow-hidden rounded-[30px] soft-card">
                 <div

@@ -108,7 +108,7 @@ export default function HomePage() {
         </section>
 
         <section className="container-shell section-block">
-          <div className="home-frame p-8">
+          <div className="stack-lg">
             <div className="section-intro">
               <p className="section-kicker">What it feels like</p>
               <h2 className="section-title mt-4">
@@ -121,17 +121,17 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="pool-showcase-grid mt-12">
+            <div className="grid gap-8 md:grid-cols-2">
               {showcaseTiles.map((tile) => (
-                <article key={tile.title} className="pool-showcase-card">
+                <article key={tile.title} className="pool-showcase-card min-h-[360px]">
                   <div className={`pool-showcase-art ${tile.artClass}`} />
                   <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(2,5,10,0.16)_45%,rgba(2,5,10,0.3)_100%)]" />
-                  <div className="absolute left-4 top-4">
+                  <div className="absolute left-6 top-6">
                     <span className="tile-chip">{tile.chip}</span>
                   </div>
                   <div className="pool-showcase-overlay">
                     <p className="tile-kicker">Pool Water</p>
-                    <h3 className="tile-title mt-3">{tile.title}</h3>
+                    <h3 className="tile-title mt-4">{tile.title}</h3>
                     <p className="mt-4 text-sm leading-7 text-white/66">{tile.body}</p>
                   </div>
                 </article>
