@@ -17,7 +17,7 @@ function MetricCard({
   metric: { label: string; value: string | number };
 }) {
   return (
-    <div className="soft-card rounded-[24px] p-5">
+    <div className="soft-card rounded-[24px] p-5 hover:bg-white/[0.03] transition-colors">
       <p className="text-xs uppercase tracking-[0.2em] text-white/40">
         {metric.label}
       </p>

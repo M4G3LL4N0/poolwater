@@ -26,14 +26,16 @@ export interface EventRecord {
   slug: string;
   title: string;
   city: string;
-  venue?: string | null;
-  date_label?: string | null;
-  time_label?: string | null;
-  summary?: string | null;
-  status?: 'Coming soon' | 'Live' | 'Past' | 'Cancelled' | string;
+  venue: string;
+  dateLabel: string;
+  timeLabel: string;
+  summary: string;
+  features: string[];
+  cta: string;
   is_featured?: boolean;
-  created_at: string;
+  created_at?: string;
   updated_at?: string;
+  status: 'Coming soon' | 'Live' | 'Past' | 'Cancelled' | string;
 }
 
 export interface ContactSubmission {
