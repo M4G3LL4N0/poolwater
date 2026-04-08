@@ -63,25 +63,29 @@ function ActivityList({
 
 async function getData(): Promise<AdminOverviewResponse> {
   try {
-    const baseUrl =
-      process.env.NEXT_PUBLIC_SITE_URL ||
-      process.env.VERCEL_PROJECT_PRODUCTION_URL ||
-      "";
-
-    const url = baseUrl
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || process.env.VERCEL_PROJECT_PRODUCTION_URL;
+    const url = baseUrl 
       ? `${baseUrl.startsWith("http") ? baseUrl : `https://${baseUrl}`}/api/admin/overview`
       : "http://localhost:3000/api/admin/overview";
 
     const res = await fetch(url, {
       cache: "no-store",
+      next: { tags: ['admin-overview'] }
     });
 
     if (!res.ok) {
-      throw new Error("Failed fetch");
+      throw new Error(`Failed to fetch admin overview: ${res.statusText}`);
     }
 
-    return (await res.json()) as AdminOverviewResponse;
-  } catch {
+    const data = await res.json();
+    
+    if (isApiError(data)) {
+      throw new Error(data.error);
+    }
+
+    return data as AdminOverviewResponse;
+  } catch (error) {
+    console.error('Failed to fetch admin overview:', error);
     return {
       metrics: [],
       latestWaitlist: [],
@@ -89,7 +93,7 @@ async function getData(): Promise<AdminOverviewResponse> {
       latestVenueInquiries: [],
       latestEvents: [],
       source: "fallback",
-      error: null,
+      error: error instanceof Error ? error.message : 'Unknown error',
     };
   }
 }

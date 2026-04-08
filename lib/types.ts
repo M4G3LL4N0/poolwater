@@ -1,13 +1,19 @@
 export interface ApiSuccess<T> {
   data: T;
+  success: boolean;
 }
 
 export interface ApiError {
   error: string;
   code?: string;
+  success: false;
 }
 
 export type ApiResponse<T> = ApiSuccess<T> | ApiError;
+
+export function isApiError(response: unknown): response is ApiError {
+  return typeof response === 'object' && response !== null && 'error' in response;
+}
 
 type Email = `${string}@${string}.${string}`;
 
