@@ -10,19 +10,19 @@ export async function POST(request: Request): Promise<NextResponse<ContactRespon
     // Validate required fields
     if (!name?.trim()) {
       return NextResponse.json(
-        { error: "Please enter your name" },
+        { error: "Please enter your name", success: false },
         { status: 400 }
       );
     }
     if (!email?.trim()) {
       return NextResponse.json(
-        { error: "Please enter your email" },
+        { error: "Please enter your email", success: false },
         { status: 400 }
       );
     }
     if (!message?.trim()) {
       return NextResponse.json(
-        { error: "Please enter a message" },
+        { error: "Please enter a message", success: false },
         { status: 400 }
       );
     }
@@ -30,7 +30,7 @@ export async function POST(request: Request): Promise<NextResponse<ContactRespon
     // Validate email format
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
       return NextResponse.json(
-        { error: "Please enter a valid email address" },
+        { error: "Please enter a valid email address", success: false },
         { status: 400 }
       );
     }
@@ -38,7 +38,7 @@ export async function POST(request: Request): Promise<NextResponse<ContactRespon
     const supabase = getSupabaseClient();
     if (!supabase) {
       return NextResponse.json(
-        { error: "Database unavailable" },
+        { error: "Database unavailable", success: false },
         { status: 500 }
       );
     }
@@ -60,7 +60,7 @@ export async function POST(request: Request): Promise<NextResponse<ContactRespon
       );
     }
 
-    return NextResponse.json({ data: { success: true } });
+    return NextResponse.json({ data: { success: true }, success: true });
     
   } catch (error) {
     console.error("Contact route error:", error);
