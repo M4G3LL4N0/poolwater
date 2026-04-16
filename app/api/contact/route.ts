@@ -8,9 +8,21 @@ export async function POST(request: Request): Promise<NextResponse<ContactRespon
     const { name, email, message, source } = body;
     
     // Validate required fields
-    if (!name?.trim() || !email?.trim() || !message?.trim()) {
+    if (!name?.trim()) {
       return NextResponse.json(
-        { error: "Name, email, and message are required" },
+        { error: "Please enter your name" },
+        { status: 400 }
+      );
+    }
+    if (!email?.trim()) {
+      return NextResponse.json(
+        { error: "Please enter your email" },
+        { status: 400 }
+      );
+    }
+    if (!message?.trim()) {
+      return NextResponse.json(
+        { error: "Please enter a message" },
         { status: 400 }
       );
     }
@@ -18,7 +30,7 @@ export async function POST(request: Request): Promise<NextResponse<ContactRespon
     // Validate email format
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
       return NextResponse.json(
-        { error: "Invalid email format" },
+        { error: "Please enter a valid email address" },
         { status: 400 }
       );
     }
