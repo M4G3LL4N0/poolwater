@@ -1,15 +1,5 @@
 import SiteShell from "@/components/site-shell";
-import { AdminOverviewResponse, isApiError } from "@/lib/types";
-
-type ActivityItem = {
-  id?: string;
-  email?: string;
-  name?: string;
-  venue_name?: string;
-  contact_name?: string;
-  title?: string;
-  created_at?: string;
-};
+import { AdminOverviewResponse, ActivityItem, isApiError } from "@/lib/types";
 
 function MetricCard({
   metric,
