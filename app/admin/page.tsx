@@ -1,5 +1,5 @@
 import SiteShell from "@/components/site-shell";
-import { AdminOverviewResponse } from "@/lib/types";
+import { AdminOverviewResponse, isApiError } from "@/lib/types";
 
 type ActivityItem = {
   id?: string;
