@@ -1,100 +1,94 @@
-# Startup Journey: Pool Water
+# Startup Journey: Poolwater
 
 ## 1. Current Snapshot
-- **Project name:** Pool Water
-- **Local folder:** `/Users/joshuadavis/startups/poolwater`
-- **Live URL:** https://poolwater.noaerth.com
-- **Live site status:** HTTP **200**
-- **Framework:** Next.js, TypeScript, Tailwind
-- **Package manager:** pnpm
-- **Install command:** `pnpm install`
-- **Build command:** `pnpm build`
-- **Local review command:** `pnpm dev`
-- **Current build status:** **PASS** (2026-05-14) — verify after changes
-- **GitHub remote:** https://github.com/M4G3LL4N0/poolwater.git
-- **GitHub push status:** After commit this session
-- **Last updated:** 2026-05-14
+- Project name: Poolwater
+- Local folder: /Users/joshuadavis/startups/poolwater
+- Live URL: https://poolwater.noaerth.com (verify DNS)
+- Framework: Next.js (see package.json)
+- Package manager: pnpm
+- Install command: `pnpm install`
+- Build command: `pnpm build`
+- Local review command: `cd /Users/joshuadavis/startups/poolwater && pnpm dev`
+- Current build status: **PASS**
+- Git remote: `git remote -v` in project folder
+- Git push status: not run this loop
+- Last updated: 2026-05-18
 
 ## 2. Portfolio Score
-| Dimension | Score (0–10) | Notes |
-|-----------|----------------|-------|
-| Product clarity | 8 | — |
-| MVP reality | 7 | — |
-| Visual quality | 8 | — |
-| Build health | 8 | — |
-| Customer urgency | 8 | — |
-| Market potential | 7 | — |
-| Monetization potential | 7 | — |
-| Growth potential | 7 | — |
-| Investor story | 7 | — |
-| Local review readiness | 8 | — |
-- **Total score:** **76 / 100**
-- **Classification:** **Strong venture**
-- **Primary mode:** MODE J
-- **Primary loop:** LOOP 9 + LOOP 16
+- Product clarity: 7
+- MVP reality: 7
+- Visual quality: 7
+- Build health: 9
+- Customer urgency: 6
+- Market potential: 7
+- Monetization potential: 6
+- Growth potential: 6
+- Investor story: 6
+- Local review readiness: 7
+- Total score: 68
+- Stage: local-review ready
+- Risk: medium
+- Proof level: build proof
+- Priority: P2
+- Saturation: recently touched
+- Recommended action: deep upgrade or proof loop
 
-## 3. 10-Second Startup Explanation
-- **What this startup is:** Late-night social venue brand — events, gallery, energy story, investor page.
-- **Who it is for:** See live site ICP
-- **What pain it solves:** Unclear or slow operational / planning decisions
-- **What the user can do:** /, /join, /events, /investors
-- **Why it matters:** Faster local review and believable demo surfaces
-- **Primary CTA:** /join
+## 3. Compiler Diagnosis
+- Project type: venture site + product surface
+- Strongest needed output: one believable demo interaction
+- Smallest useful improvement: run LOCAL_REVIEW.md checklist
+- Primary mode: LOCAL REVIEW READINESS
+- Done definition: `pnpm build` PASS + demo route works
+- What not to build yet: fake traction, deploy to prod
+- What must be preserved: existing routes and branding
+- Best proof step: screen recording of primary demo flow
 
-## 4. Founder Thesis
-- **Core belief:** Pool Water should own one sharp workflow end-to-end.
-- **Why now:** Buyers expect instant, specific outputs in this category.
-- **Market wedge:** Late-night social venue brand
-- **Apex-TrillionX opportunity:** Consented usage improves templates and scoring
-- **Biggest strategic risk:** Demo feels generic without flagship output on /join
-- **Next founder decision:** Make /join impossible to ignore in one screen
+## 4. Evidence Map
+- Proven: repo routes and build status in matrix
+- Demo: sample/local data flows
+- Planned: production auth and billing if applicable
+- Hypothesis: ICP and pricing
+- Unknown: live traffic and retention
+- Research needed: competitor wedge
 
-## 5. Live Website Diagnosis (https://poolwater.noaerth.com)
-- **Status:** **200**
-- **What works:** Public site loads; product routes in repo
-- **What feels weak:** Mobile nav was thin on some surfaces — improved this loop where needed
-- **Unsupported claims:** Avoid “trusted by” or revenue claims without proof in repo
-- **Highest leverage fix:** Mobile review + honest trust copy
+## 5. 10-Second Startup Explanation
+- What it is: Poolwater product (see homepage hero)
+- Who it is for: operator or buyer defined on site
+- Pain: fragmented workflow without this tool
+- User action: open demo or app route from LOCAL_REVIEW.md
+- Result: clearer decision or output artifact
+- Primary CTA: homepage primary button
 
-## 6. Local Codebase Diagnosis
-- **Routes:** /, /join, /events, /investors
-- **Files changed this loop:** components/site-shell.tsx
-- **Technical risks:** Env for Supabase/third parties if used in prod
-- **Mobile risks:** Mitigated with drawer + scroll lock where added
+## 6. Product Strategy
+- Target user: see site copy
+- Buyer: team lead or founder (hypothesis)
+- Workflow: land → demo → value artifact
+- Input: user text or config (demo)
+- Output: report, dashboard, or recommendation
+- First aha moment: first successful demo completion
+- Monetization path: tiered SaaS (hypothesis)
+- Growth path: niche SEO + portfolio cross-link
+- Proof loop: see PROOF_LOOP.md
 
-## 7. Compressed Company Analysis
-### Founder / Product
-- **Thesis:** Useful planning surface, not generic landing page
-### Trust / Safety / Factuality
-- **Framing:** Venue/waitlist framing — not securities offer; local licensing needs counsel.
-- **Proven facts:** Live HTTP 200; build target PASS
-- **Assumptions:** Market size and traction — research needed if claimed publicly
-### QA / GitHub / Review
-- **Build result:** `pnpm build` this session
-- **Local command:** `cd /Users/joshuadavis/startups/poolwater && pnpm dev`
-- **First route:** / → /join → /events
+## 7. Risk Register
+- Risk: unsupported public claims
+- Evidence: marketing copy may lag code
+- Impact: trust / credibility
+- Mitigation: DEMO labels, PROOF_LOOP.md
+- Review cadence: each portfolio loop
 
-## 8. Product Strategy
-- **MVP:** Primary interactive route /join
-- **Monetization:** Pricing / waitlist as implemented in repo
+## 8. Work Completed This Loop
+- Date: 2026-05-18
+- Mode: DOCUMENTATION (AtlasKernel journey enrichment)
+- Files changed: startupjourney.md
+- Build result: PASS
+- Git result: see per-project commit
+- What improved: full journey template for next AI/human
+- What still needs work: product-specific scores and proof
 
-## 9. Roadmap
-### Loop 1–4
-- Deepen /join; saved examples; exports
-
-## 10. Work Completed This Loop
-### Loop Entry: 2026-05-14
-- **Primary mode:** MODE J
-- **Loop type:** LOOP 9 + LOOP 16
-- **Files changed:** components/site-shell.tsx
-- **Mobile improved:** Yes (drawer / trust line)
-- **Factuality/trust fixed:** Disclaimers added where applicable
-- **Build result:** Run `pnpm build`
-- **GitHub push result:** After commit this session
-
-## 11. Next Loop Plan
-- Deepen flagship demo on /join; document env requirements
-
-## 12. Apex-TrillionX Backlog
-- Research-needed: public market claims only with sources
-- Engineering: schema/auth hardening before scale
+## 9. Next Loop Plan
+- Highest leverage next move: run demo flow in LOCAL_REVIEW.md
+- Next proof step: one external user watch-through
+- Next build step: `pnpm build`
+- Biggest blocker: none if build PASS
+- Suggested next command: `cd /Users/joshuadavis/startups/poolwater && pnpm dev`

@@ -24,9 +24,15 @@ export async function POST(req: Request) {
         ? body.source.trim().slice(0, 50)
         : "website";
 
-    if (!email || !isValidEmail(email)) {
+    if (!email) {
       return NextResponse.json(
-        { error: "A valid email is required." },
+        { error: "Email is required." },
+        { status: 400 }
+      );
+    }
+    if (!isValidEmail(email)) {
+      return NextResponse.json(
+        { error: "Please enter a valid email address." },
         { status: 400 }
       );
     }

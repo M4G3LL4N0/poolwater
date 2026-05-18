@@ -1,48 +1,24 @@
-import type { Metadata } from "next";
 import "./globals.css";
+import type { ReactNode } from "react";
 
-export const metadata: Metadata = {
-  title: {
-    template: '%s | POOL WATER',
-    default: 'POOL WATER'
-  },
-  description: "A late-night social playground built around pool tables, arcade energy, movement, food, and rooms that actually feel alive.",
-  openGraph: {
-    title: 'POOL WATER',
-    description: 'The late-night social playground where pool tables meet arcade energy, movement, and real food.',
-    url: 'https://poolwater.com',
-    siteName: 'POOL WATER',
-    images: [
-      {
-        url: '/og-image.jpg',
-        width: 1200,
-        height: 630,
-      },
-    ],
-    locale: 'en_US',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'POOL WATER',
-    description: 'The late-night social playground where pool tables meet arcade energy, movement, and real food.',
-    images: ['/og-image.jpg'],
-  },
+export const metadata = {
+  title: "POOL WATER | Don’t just go out. Jump in.",
+  description: "A late-night adult social game floor built around pool, arcade glow, food, and natural interaction.",
 };
 
-import { ErrorBoundary } from "@/components/error-boundary";
+export const viewport = {
+  themeColor: "#02050a",
+};
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: ReactNode;
+}) {
   return (
     <html lang="en">
-      <body>
-        <ErrorBoundary>
-          {children}
-        </ErrorBoundary>
+      <body className="bg-[#02050a] text-white antialiased">
+        {children}
       </body>
     </html>
   );

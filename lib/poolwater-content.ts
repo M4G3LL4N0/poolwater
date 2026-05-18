@@ -1,3 +1,5 @@
+import type { EventRecord } from './types';
+
 // Navigation
 export const navLinks = [
   { href: "/", label: "Home" },
@@ -119,7 +121,7 @@ export const currentPrinciples = [
 ];
 
 // Events Page Content
-export const eventsHighlights = [
+export const eventsHighlights: string[] = [
   "Walk in and immediately have something to do",
   "Bounce between pool, arcade games, foosball, and air hockey",
   "Eat real food instead of settling for random leftovers later",
@@ -127,7 +129,7 @@ export const eventsHighlights = [
   "Stay because the room keeps earning it",
 ];
 
-export const eventFormats = [
+export const eventFormats: EventFormat[] = [
   {
     title: "Open Play Nights",
     body:
@@ -145,8 +147,9 @@ export const eventFormats = [
   },
 ];
 
-export const eventCards = [
+export const eventCards: EventRecord[] = [
   {
+    id: "evt_opening_night",
     slug: "opening-night",
     status: "Coming soon",
     title: "Opening Night",
@@ -160,6 +163,7 @@ export const eventCards = [
     cta: "Join for first access",
   },
   {
+    id: "evt_tournament_night",
     slug: "tournament-night",
     status: "In development",
     title: "Tournament Night",
@@ -173,6 +177,7 @@ export const eventCards = [
     cta: "Get notified first",
   },
   {
+    id: "evt_arcade_heavy",
     slug: "arcade-heavy",
     status: "Planned",
     title: "Arcade Heavy",
@@ -311,3 +316,7 @@ export const faqContent = [
     answer: "Yes! We host structured pool tournaments and competitive arcade game nights alongside our open play events."
   }
 ];
+export interface EventFormat {
+  title: string;
+  body: string;
+}

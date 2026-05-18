@@ -1,29 +1,29 @@
 import Link from "next/link";
-import SiteShell from "../../components/site-shell";
-import { aboutBlocks } from "../../lib/poolwater-content";
+import { SubpageVisual } from "@/components/SubpageVisual";
+import SiteShell from "@/components/site-shell";
+import { aboutBlocks } from "@/lib/poolwater-content";
 
 export default function AboutPage() {
   return (
     <SiteShell>
       <main>
-        <section className="page-hero">
-          <div className="page-hero-inner">
-            <p className="section-kicker">About</p>
-            <h1 className="mt-5 max-w-4xl text-5xl font-semibold tracking-[-0.06em] text-white md:text-7xl">
-              A space designed for you to shine.
-            </h1>
-            <p className="mt-6 max-w-3xl text-base leading-8 text-white/68 md:text-xl">
-              POOL WATER is built around one idea: your night should be about connection, 
-              competition, and creating memories that last.
-            </p>
-          </div>
+      <SubpageVisual variant="about" />
+        <section className="mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:px-8">
+          <p className="text-xs font-bold uppercase tracking-[0.3em] text-cyan-200/75">About</p>
+          <h1 className="mt-5 max-w-4xl text-5xl font-black leading-[0.95] tracking-[-0.06em] text-white sm:text-7xl">
+            A night out should feel like you stepped into something.
+          </h1>
+          <p className="mt-7 max-w-3xl text-lg leading-8 text-white/66">
+            POOL WATER is a late-night adult social game floor built for people who are bored with
+            passive bars, stale pool halls, corporate arcades, and nights that never really start.
+          </p>
         </section>
 
-        <section className="container-shell section-block">
-          <div className="grid grid-gap lg:grid-cols-3">
+        <section className="mx-auto max-w-7xl px-5 pb-20 sm:px-6 lg:px-8">
+          <div className="grid gap-5 lg:grid-cols-3">
             {aboutBlocks.map((block) => (
-              <article key={block.title} className="soft-card rounded-[30px] p-7">
-                <p className="text-2xl font-semibold tracking-[-0.04em] text-white">{block.title}</p>
+              <article key={block.title} className="rounded-[2rem] border border-white/12 bg-white/[0.055] p-7 backdrop-blur-xl">
+                <h2 className="text-2xl font-black tracking-[-0.04em] text-white">{block.title}</h2>
                 <p className="mt-5 text-sm leading-7 text-white/62">{block.body}</p>
               </article>
             ))}
@@ -31,42 +31,31 @@ export default function AboutPage() {
         </section>
 
         <section className="border-y border-white/10 bg-white/[0.025]">
-          <div className="container-shell section-block">
-            <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-              <div>
-                <p className="section-kicker">The idea</p>
-                <h2 className="section-title mt-4">Make going out feel participatory again.</h2>
-              </div>
-
-              <div className="glass-panel rounded-[34px] p-8">
-                <p className="text-sm leading-8 text-white/68 md:text-base">
-                  The room is designed around activity, not posturing. It gives people a reason to
-                  move, something to react to, and a natural way to interact without the whole night
-                  feeling forced. That is the difference between a room that looks busy and a room
-                  that feels alive.
-                </p>
-                <p className="mt-6 text-sm leading-8 text-white/68 md:text-base">
-                  POOL WATER is for people who want more from a night out: more motion, more texture,
-                  more fun, better food, better interaction, and a place that keeps earning the next
-                  hour. The room is designed to feel alive from the moment you walk in until the last
-                  game ends.
-                </p>
-              </div>
+          <div className="mx-auto grid max-w-7xl gap-10 px-5 py-20 sm:px-6 lg:grid-cols-[.85fr_1.15fr] lg:px-8">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.3em] text-violet-200/75">Purpose</p>
+              <h2 className="mt-4 text-4xl font-black tracking-[-0.05em] text-white sm:text-5xl">
+                Make going out participatory again.
+              </h2>
+            </div>
+            <div className="rounded-[2rem] border border-white/12 bg-black/25 p-8 text-base leading-8 text-white/66 backdrop-blur-xl">
+              The room is designed around activity, not posturing. Games create movement, movement
+              creates energy, and energy makes interaction feel natural. POOL WATER is for nights
+              that feel active, social, sharp, and worth remembering.
             </div>
           </div>
         </section>
 
-        <section className="container-shell section-block">
-          <div className="glass-panel rounded-[36px] p-8 md:p-12">
-            <p className="section-kicker">Keep going</p>
-            <h2 className="mt-4 text-3xl font-semibold tracking-[-0.05em] text-white md:text-5xl">
+        <section className="mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:px-8">
+          <div className="rounded-[2.5rem] border border-cyan-200/20 bg-cyan-300/10 p-8 sm:p-12">
+            <h2 className="max-w-3xl text-4xl font-black tracking-[-0.05em] text-white sm:text-5xl">
               Learn the room before you step into it.
             </h2>
             <div className="mt-8 flex flex-wrap gap-4">
-              <Link href="/energy" className="primary-btn">
+              <Link href="/energy" className="rounded-full bg-white px-6 py-3 text-sm font-black text-slate-950">
                 Read The Current
               </Link>
-              <Link href="/events" className="secondary-btn">
+              <Link href="/events" className="rounded-full border border-white/20 px-6 py-3 text-sm font-bold text-white">
                 Explore events
               </Link>
             </div>

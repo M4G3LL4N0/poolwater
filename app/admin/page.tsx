@@ -1,126 +1,33 @@
 import SiteShell from "@/components/site-shell";
-import { AdminOverviewResponse, ActivityItem, isApiError } from "@/lib/types";
+import { SubpageVisual } from "@/components/SubpageVisual";
+import { getMockEvents } from "@/lib/events";
 
-function MetricCard({
-  metric,
-}: {
-  metric: { label: string; value: string | number };
-}) {
-  return (
-    <div className="soft-card rounded-[24px] p-5 hover:bg-white/[0.03] transition-colors">
-      <p className="text-xs uppercase tracking-[0.2em] text-white/40">
-        {metric.label}
-      </p>
-      <p className="mt-2 text-2xl font-semibold text-white">{metric.value}</p>
-    </div>
-  );
-}
+const metrics = [
+  { label: "Waitlist", value: "Pending DB" },
+  { label: "Events", value: getMockEvents().length },
+  { label: "Status", value: "MVP ready" },
+  { label: "Auth", value: "Required later" },
+];
 
-function ActivityList({
-  title,
-  items = [],
-}: {
-  title: string;
-  items?: ActivityItem[];
-}) {
-  if (items.length === 0) {
-    return (
-      <div className="soft-card rounded-[24px] p-5">
-        <p className="text-sm text-white/60">{title}</p>
-        <p className="mt-3 text-sm text-white/40">No data yet</p>
-      </div>
-    );
-  }
-
-  return (
-    <div className="soft-card rounded-[24px] p-5">
-      <p className="text-sm text-white/60">{title}</p>
-      <div className="mt-4 space-y-3">
-        {items.map((item, i) => (
-          <div key={item.id || i} className="text-sm text-white/80">
-            {item.email ||
-              item.name ||
-              item.venue_name ||
-              item.contact_name ||
-              item.title ||
-              "Entry"}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-async function getData(): Promise<AdminOverviewResponse> {
-  try {
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || process.env.VERCEL_PROJECT_PRODUCTION_URL;
-    const url = baseUrl 
-      ? `${baseUrl.startsWith("http") ? baseUrl : `https://${baseUrl}`}/api/admin/overview`
-      : "http://localhost:3000/api/admin/overview";
-
-    const res = await fetch(url, {
-      cache: "no-store",
-      next: { tags: ['admin-overview'] }
-    });
-
-    if (!res.ok) {
-      throw new Error(`Failed to fetch admin overview: ${res.statusText}`);
-    }
-
-    const data = await res.json();
-    
-    if (isApiError(data)) {
-      throw new Error(data.error);
-    }
-
-    return data as AdminOverviewResponse;
-  } catch (error) {
-    console.error('Failed to fetch admin overview:', error);
-    return {
-      metrics: [],
-      latestWaitlist: [],
-      latestContacts: [],
-      latestVenueInquiries: [],
-      latestEvents: [],
-      source: "fallback",
-      error: error instanceof Error ? error.message : 'Unknown error',
-    };
-  }
-}
-
-export default async function AdminPage() {
-  const data = await getData();
-
+export default function AdminPage() {
   return (
     <SiteShell>
-      <main className="container-shell py-12">
-        <h1 className="mb-8 text-3xl font-semibold text-white">
-          Admin Overview
+      <main className="mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:px-8">
+      <SubpageVisual variant="default" />
+        <p className="text-xs font-bold uppercase tracking-[0.3em] text-cyan-200/75">Admin</p>
+        <h1 className="mt-5 max-w-4xl text-5xl font-black tracking-[-0.06em] text-white">
+          Operations snapshot
         </h1>
-
-        <div className="mb-10 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
-          {(data.metrics || []).map((metric) => (
-            <MetricCard key={metric.label} metric={metric} />
+        <p className="mt-6 max-w-3xl text-sm leading-7 text-amber-200/75">
+          MVP note: protect this page with authentication before using it for real operations.
+        </p>
+        <div className="mt-10 grid gap-5 md:grid-cols-4">
+          {metrics.map((metric) => (
+            <div key={metric.label} className="rounded-[2rem] border border-white/12 bg-white/[0.055] p-6">
+              <p className="text-xs uppercase tracking-[0.24em] text-white/40">{metric.label}</p>
+              <p className="mt-3 text-2xl font-black text-white">{metric.value}</p>
+            </div>
           ))}
-        </div>
-
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4">
-          <ActivityList
-            title="Latest Waitlist Entries"
-            items={data.latestWaitlist ?? []}
-          />
-          <ActivityList
-            title="Latest Contact Submissions"
-            items={data.latestContacts ?? []}
-          />
-          <ActivityList
-            title="Latest Venue Inquiries"
-            items={data.latestVenueInquiries ?? []}
-          />
-          <ActivityList
-            title="Latest Events"
-            items={data.latestEvents ?? []}
-          />
         </div>
       </main>
     </SiteShell>

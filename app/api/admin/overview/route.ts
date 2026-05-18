@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import { getSupabaseClient } from "@/lib/supabase";
-import { AdminOverviewResponse, AdminMetricCard } from "@/lib/types";
-import { getMockEvents } from "@/lib/events";
+import type { AdminOverviewResponse } from "@/lib/types";
 
 export async function GET(): Promise<NextResponse<AdminOverviewResponse>> {
   const buildFallbackResponse = (): AdminOverviewResponse => ({
@@ -57,10 +56,10 @@ export async function GET(): Promise<NextResponse<AdminOverviewResponse>> {
         { label: "Venue Inquiries", value: venueInquiriesCount.count || 0 },
         { label: "Events", value: eventsCount.count || 0 }
       ],
-      latestWaitlist: latestWaitlist.data || [],
-      latestContacts: latestContacts.data || [],
-      latestVenueInquiries: latestVenueInquiries.data || [],
-      latestEvents: latestEvents.data || [],
+      latestWaitlist: (latestWaitlist.data || []) as AdminOverviewResponse["latestWaitlist"],
+      latestContacts: (latestContacts.data || []) as AdminOverviewResponse["latestContacts"],
+      latestVenueInquiries: (latestVenueInquiries.data || []) as AdminOverviewResponse["latestVenueInquiries"],
+      latestEvents: (latestEvents.data || []) as AdminOverviewResponse["latestEvents"],
       source: "supabase"
     };
 

@@ -8,8 +8,12 @@ const MOCK_EVENTS: EventRecord[] = [
     city: "Los Angeles",
     venue: "Venue announced privately",
     date_label: "TBA",
+    dateLabel: "TBA",
     time_label: "Late night",
+    timeLabel: "Late night",
     summary: "The first full-room expression of Pool Water",
+    features: ["Games", "Movement", "Food", "Private guest list"],
+    cta: "Join the waitlist",
     status: "Coming soon",
     is_featured: true,
     created_at: new Date().toISOString(),
@@ -21,8 +25,12 @@ const MOCK_EVENTS: EventRecord[] = [
     city: "Los Angeles",
     venue: "Private release first",
     date_label: "TBA",
+    dateLabel: "TBA",
     time_label: "Late night",
+    timeLabel: "Late night",
     summary: "A sharper competition format",
+    features: ["Tournament format", "Host-led play", "Late-night social energy"],
+    cta: "Request an invite",
     status: "In development",
     is_featured: false,
     created_at: new Date().toISOString(),
@@ -34,8 +42,12 @@ const MOCK_EVENTS: EventRecord[] = [
     city: "Los Angeles",
     venue: "Private release first",
     date_label: "TBA",
+    dateLabel: "TBA",
     time_label: "Late night",
+    timeLabel: "Late night",
     summary: "A more kinetic variation",
+    features: ["Arcade-first layout", "Small teams", "Music-led pacing"],
+    cta: "Join the list",
     status: "Planned",
     is_featured: false,
     created_at: new Date().toISOString(),
@@ -57,6 +69,6 @@ export function sortEvents(events: EventRecord[]): EventRecord[] {
     if (!a.is_featured && b.is_featured) return 1;
     
     // Then by creation date
-    return new Date(a.created_at).getTime() - new Date(b.created_at).getTime();
+    return new Date(a.created_at ?? 0).getTime() - new Date(b.created_at ?? 0).getTime();
   });
 }

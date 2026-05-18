@@ -1,47 +1,36 @@
-import { createClient, type SupabaseClient } from "@supabase/supabase-js";
+import { createClient } from "@supabase/supabase-js";
 
-let _client: SupabaseClient | null = null;
+type LooseTable = {
+  Row: Record<string, unknown>;
+  Insert: Record<string, unknown>;
+  Update: Record<string, unknown>;
+  Relationships: [];
+};
 
-export function hasSupabaseEnv(): boolean {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-  
-  if (!url || !key) {
-    console.warn('Supabase environment variables not configured');
-    return false;
+type PoolWaterDatabase = {
+  public: {
+    Tables: Record<string, LooseTable>;
+    Views: Record<string, never>;
+    Functions: Record<string, never>;
+    Enums: Record<string, never>;
+    CompositeTypes: Record<string, never>;
+  };
+};
+
+let cachedClient: ReturnType<typeof createClient<PoolWaterDatabase>> | null = null;
+
+export function getSupabaseClient() {
+  if (cachedClient) {
+    return cachedClient;
   }
 
-  try {
-    new URL(url);
-    return true;
-  } catch {
-    console.warn('Invalid Supabase URL');
-    return false;
-  }
-}
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-export function getSupabaseClient(): SupabaseClient | null {
-  if (!hasSupabaseEnv()) {
+  if (!supabaseUrl || !supabaseAnonKey) {
     return null;
   }
 
-  if (_client) {
-    return _client;
-  }
-
-  try {
-    _client = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL!,
-      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-      {
-        auth: {
-          persistSession: false,
-        },
-      }
-    );
-    return _client;
-  } catch (error) {
-    console.error('Failed to initialize Supabase client:', error);
-    return null;
-  }
+  cachedClient = createClient(supabaseUrl, supabaseAnonKey);
+  return cachedClient;
 }

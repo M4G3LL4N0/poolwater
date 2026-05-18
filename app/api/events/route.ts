@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { getSupabaseClient } from "@/lib/supabase";
 import { getMockEvents } from "@/lib/events";
-import type { EventsResponse } from "@/lib/types";
+import type { EventRecord, EventsResponse } from "@/lib/types";
 
 export async function GET(): Promise<NextResponse<EventsResponse>> {
   try {
@@ -29,7 +29,7 @@ export async function GET(): Promise<NextResponse<EventsResponse>> {
     }
 
     return NextResponse.json(
-      { data: data?.length ? data : getMockEvents() },
+      { data: data?.length ? (data as EventRecord[]) : getMockEvents() },
       { status: 200 }
     );
   } catch (error) {

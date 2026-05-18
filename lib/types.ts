@@ -1,12 +1,12 @@
 export interface ApiSuccess<T> {
   data: T;
-  success: boolean;
+  success?: boolean;
 }
 
 export interface ApiError {
   error: string;
   code?: string;
-  success: false;
+  success?: false;
 }
 
 export type ApiResponse<T> = ApiSuccess<T> | ApiError;
@@ -34,7 +34,9 @@ export interface EventRecord {
   city: string;
   venue: string;
   dateLabel: string;
+  date_label?: string;
   timeLabel: string;
+  time_label?: string;
   summary: string;
   features: string[];
   cta: string;
@@ -151,6 +153,7 @@ export interface ActivityItem {
   email?: string;
   name?: string;
   venue_name?: string;
+  contact_name?: string;
   title?: string;
   created_at?: string;
 }

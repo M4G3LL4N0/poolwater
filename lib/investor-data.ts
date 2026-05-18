@@ -3,7 +3,6 @@ import type {
   InvestorSlide,
   LaunchPlanPhase,
   EventExecutionPlan,
-  PortfolioUiNote,
 } from "@/lib/types";
 
 // Core metrics for investor overview
@@ -131,21 +130,5 @@ export const firstThreeEvents: EventExecutionPlan[] = [
       "Refined: Arcade game rotation timing",
       "Refined: Staff response to peak density",
     ],
-  },
-];
-
-// Parent company integration notes
-export const portfolioUiStructure: PortfolioUiNote[] = [
-  {
-    title: "Noaerth portfolio positioning",
-    body: "Position as experiential entertainment, not nightlife. Highlight design system, operational playbook, and expansion logic over party imagery.",
-  },
-  {
-    title: "Press materials",
-    body: "All press mentions should link design language to repeatable format, not one-off events. Avoid 'pop-up' framing after Year 1.",
-  },
-  {
-    title: "Corporate partnerships",
-    body: "Potential sponsors should align with active social (not passive drinking) positioning. Think athletic brands, game companies, not liquor.",
   },
 ];
