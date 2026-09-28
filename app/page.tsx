@@ -1,7 +1,4 @@
 import Link from "next/link";
-import { MarketingGraphicsStack } from "@/components/MarketingGraphicsStack";
-import { ProcessFlowSection } from "@/components/ProcessFlowSection";
-import { HeroProductPanel } from "@/components/HeroProductPanel";
 import { TrustStrip } from "@/components/TrustStrip";
 import SiteShell from "@/components/site-shell";
 
@@ -170,9 +167,6 @@ export default function HomePage() {
             </div>
           </div>
         </section>
-      <section className="mx-auto max-w-6xl px-4 pb-16 pt-8 sm:px-6"><HeroProductPanel /></section>
-      <ProcessFlowSection />
-      <MarketingGraphicsStack />
     </main>
     </SiteShell>
   );
