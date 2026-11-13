@@ -7,8 +7,11 @@ const LABELS: Record<string, { title: string; sub: string }> = {
   dashboard: { title: "Workspace", sub: "Status & next actions." },
   default: { title: "Product", sub: "Explore this surface." },
 };
+
+const FALLBACK_LABEL = { title: "Product", sub: "Explore this surface." };
+
 export function SubpageVisual({ variant = "default" }: { variant?: string }) {
-  const v = LABELS[variant] || LABELS.default;
+  const v = LABELS[variant] ?? FALLBACK_LABEL;
   return (
     <div className="mb-8 rounded-2xl border border-white/10 bg-slate-950/70 p-5">
       <p className="text-xs uppercase text-cyan-300">{v.title}</p>
